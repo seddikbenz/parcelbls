@@ -26,20 +26,20 @@ class Store {
   success = false;
   message = '...'
   showTable = false
-  first_name = "seddik";
-  last_name = "benzemame";
-  date_of_birth = "1990-06-22";
-  email = "seddik.benz.dev@gmail.com";
+  first_name = "first name";
+  last_name = "last name";
+  date_of_birth = "YYYY-MM-DD";
+  email = "user@email.com";
   phone_code = "213";
-  phone = "540055010";
+  phone = "600000000";
   nationality = "62";
   passport_type = "01";
-  passport_no = "54687685454";
-  ppt_issue_date = "487687687";
-  ppt_expiry_date = "5446546";
-  ppt_issue_palace = "54654654";
+  passport_no = "0000000000000";
+  ppt_issue_date = "YYYY-MM-DD";
+  ppt_expiry_date = "YYYY-MM-DD";
+  ppt_issue_palace = "Bordj bou arreridj";
   juridiction = "15#Bordj-Bou-Arr�ridj#10";
-  visa_no = "44";
+  visa_no = "";
   visa_type = "207";
   veryfication_code = "";
 }
@@ -82,6 +82,15 @@ const disposer = observe(appStore, (change) => {
   }
 })
 
+const styles = {
+  input: {
+    padding: 3,
+    marginBottom: 3,
+    border: '1px solid #000',
+    borderRadius: 3
+  }
+}
+
 class Table extends Component {
   _onDoubleClick(value) {
     let p = prompt("enter new value:")
@@ -93,14 +102,16 @@ class Table extends Component {
     const { store } = this.props;
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }} >
-        <h3>double click to edit</h3>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.first_name = prompt("Enter new value")} >first_name: {store.first_name}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.last_name = prompt("Enter new value")} >last_name: {store.last_name}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.date_of_birth = prompt("Enter new value")}>date_of_birth: {store.date_of_birth}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.email = prompt("Enter new value")}>email: {store.email}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.phone = prompt("Enter new value")}>phone: {store.phone}</div>
-        <div style={{ border: '1px solid #000', height: 24 }}>
+        <label style={{ color: 'green', alignSelf: 'center', padding:3, textDecoration: 'underline' }}>Double click inside field to edit</label>
+        <div style={styles.input} onDoubleClick={() => store.first_name = prompt("Enter new value")} >first_name: {store.first_name}</div>
+        <div style={styles.input} onDoubleClick={() => store.last_name = prompt("Enter new value")} >last_name: {store.last_name}</div>
+        <div style={styles.input} onDoubleClick={() => store.date_of_birth = prompt("Enter new value")}>date_of_birth: {store.date_of_birth}</div>
+        <div style={styles.input} onDoubleClick={() => store.email = prompt("Enter new value")}>email: {store.email}</div>
+        <div style={styles.input} onDoubleClick={() => store.phone = prompt("Enter new value")}>phone: {store.phone}</div>
+        <div style={styles.input}>
+          Passport type:
           <select
+            style={{ width: '100%' }}
             value={store.passport_type}
             onChange={e => (store.passport_type = e.target.value)}
             placeholder="passportType"
@@ -121,12 +132,14 @@ class Table extends Component {
             <option value="11">UN laissez-passer</option>
           </select>
         </div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.passport_no = prompt("Enter new value")}>passport_no: {store.passport_no}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.ppt_issue_date = prompt("Enter new value")}>ppt_issue_date: {store.ppt_issue_date}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.ppt_expiry_date = prompt("Enter new value")}>ppt_expiry_date: {store.ppt_expiry_date}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.ppt_issue_palace = prompt("Enter new value")}>ppt_issue_palace {store.ppt_issue_palace}</div>
-        <div style={{ border: '1px solid #000', height: 24 }} >
+        <div style={styles.input} onDoubleClick={() => store.passport_no = prompt("Enter new value")}>passport_no: {store.passport_no}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_issue_date = prompt("Enter new value")}>ppt_issue_date: {store.ppt_issue_date}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_expiry_date = prompt("Enter new value")}>ppt_expiry_date: {store.ppt_expiry_date}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_issue_palace = prompt("Enter new value")}>ppt_issue_palace {store.ppt_issue_palace}</div>
+        <div style={styles.input} >
+          Juridiction:
           <select
+            style={{ width: '100%' }}
             placeholder="juridiction"
             value={store.juridiction}
             onChange={e => (store.juridiction = e.target.value)}
@@ -179,9 +192,11 @@ class Table extends Component {
             <option value="14#Tlemcen#9">Tlemcen</option>
           </select>
         </div>
-        <div style={{ border: '1px solid #000', height: 24 }} onDoubleClick={() => store.visa_no = prompt("Enter new value")}>visa_no: {store.visa_no}</div>
-        <div style={{ border: '1px solid #000', height: 24 }}>
+        <div style={styles.input} onDoubleClick={() => store.visa_no = prompt("Enter new value")}>visa_no: {store.visa_no}</div>
+        <div style={styles.input}>
+          Visa type:
           <select
+            style={{ width: '100%' }}
             value={store.visa_type}
             onChange={e => (store.visa_type = e.target.value)}
             placeholder="VisaTypeId"
@@ -246,7 +261,7 @@ class App extends Component {
       reloadSetTimeout()
     } else {
       var email = appStore.email
-      var jurisId = appStore.juridiction
+      var jurisId = appStore.juridiction.split('#')
       var phoneCode = appStore.phone_code
       var mobileNo = appStore.phone
       var visa = appStore.visa_no
@@ -273,7 +288,7 @@ class App extends Component {
               appStore.message = 'Please used last sent verification code.'
               appStore.success = true
               $("#reponse_div").html("Please used last sent verification code.");
-              window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw","_blank");
+              window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw", "_blank");
             } else if (response.trim() == "error") {
               appStore.message = 'Please check your phone number and country code for phone.'
               reloadSetTimeout()
@@ -287,7 +302,7 @@ class App extends Component {
               appStore.success = true
               $("#reponse_div").html("Verification code sent to your phone.");
               $(".btn-check-otp").attr('disabled', 'disabled');
-              window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw","_blank");
+              window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw", "_blank");
             } else {
               reloadSetTimeout()
             }
@@ -362,12 +377,15 @@ class App extends Component {
         backgroundColor: appStore.success ? 'lightgreen' : '#ffeb3b',
         borderRadius: 10,
         padding: 10,
-        opacity: 0.95,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center'
       }} id="reactAppDiv">
         <input
+          style={{
+            padding: 3,
+            fontSize: 14
+          }}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
               if (document.getElementById('otpvr') !== null) {
@@ -383,21 +401,24 @@ class App extends Component {
               }
             }
           }}
-          type='text' placeholder='veryfication code and press Enter ' value={appStore.veryfication_code} onChange={this._codeChange} />
+          type='text'
+          placeholder='Put the veryfication code and press Enter '
+          value={appStore.veryfication_code}
+          onChange={this._codeChange} />
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <button style={{ flex: 1 }} onClick={this._fill}>fill data</button>
-          <button style={{ flex: 1, backgroundColor: appStore.start ? '#d8e647' : '#eaaeae' }} onClick={this._onStart}>{appStore.start ? 'click to stop' : 'click to start'}</button>
-          <button style={{ flex: 1 }} onClick={()=>{
+          <button style={{ flex: 1 }} onClick={this._fill}>Fill data</button>
+          <button style={{ flex: 1, backgroundColor: appStore.start ? '#d8e647' : '#eaaeae' }} onClick={this._onStart}>{appStore.start ? 'Click to stop' : 'Click to start'}</button>
+          <button style={{ flex: 1 }} onClick={() => {
             localStorage.clear()
             document.location.reload()
-          }}>default</button>
+          }}>Default values</button>
         </div>
         <span style={{ alignSelf: 'center' }}>{appStore.message}</span>
-        <hr />
+        <hr style={{width: '100%'}} />
         <span onClick={() => {
           appStore.start = false;
           appStore.showTable = !appStore.showTable
-        }} style={{ alignSelf: 'center', cursor: 'pointer' }}>{appStore.showTable ? 'hide' : 'show'}</span>
+        }} style={{ alignSelf: 'center', cursor: 'pointer' }}>{appStore.showTable ? 'Hide your informations' : 'Show your informations'}</span>
         {
           appStore.showTable === true &&
           <Table store={appStore} />
