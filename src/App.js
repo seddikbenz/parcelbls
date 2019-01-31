@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import { decorate, observable, observe, toJS } from "mobx";
 import { observer } from "mobx-react";
-import { render } from "react-dom";
 //import "./index.scss";
+//import $ from 'jquery';
 
 const addStyleString = (str) => {
   var node = document.createElement('style');
   node.innerHTML = str;
   document.body.appendChild(node);
+}
+
+let reloadSetTimeoutVar
+const reloadSetTimeout = () => {
+  reloadSetTimeoutVar = setTimeout(() => { document.location.reload() }, 5000)
+}
+const stopSetTimeout = () => {
+  clearTimeout(reloadSetTimeoutVar);
 }
 
 class Store {
@@ -16,6 +24,7 @@ class Store {
   fill_auto = false;
   start = false;
   success = false;
+  message = '...'
   showTable = false
   first_name = "seddik";
   last_name = "benzemame";
@@ -42,6 +51,7 @@ decorate(Store, {
   isLoggedin: observable,
   fill_auto: observable,
   success: observable,
+  message: observable,
   start: observable,
   showTable: observable,
   first_name: observable,
@@ -65,7 +75,11 @@ decorate(Store, {
 const appStore = new Store();
 
 const disposer = observe(appStore, (change) => {
-  console.log(change.type, change.name, "from", change.oldValue, "to", change.object[change.name]);
+  //console.log(change.type, change.name, "from", change.oldValue, "to", change.object[change.name]);
+  localStorage.setItem("appStore", JSON.stringify(toJS(appStore)));
+  if (change.name = 'start' && change.object[change.name] === false) {
+    stopSetTimeout()
+  }
 })
 
 class Table extends Component {
@@ -188,8 +202,6 @@ class Table extends Component {
 }
 Table = observer(Table);
 
-
-
 class App extends Component {
   componentDidMount() {
     addStyleString(`
@@ -197,28 +209,146 @@ class App extends Component {
         position: relative;
       }
     `)
-    this.init()
+    const storeLocalStorageText = localStorage.getItem("appStore")
+    if (storeLocalStorageText) {
+      let storeLocalStorage = JSON.parse(storeLocalStorageText)
+      appStore.isLoading = storeLocalStorage.isLoading
+      appStore.isLoggedin = storeLocalStorage.isLoggedin
+      appStore.fill_auto = storeLocalStorage.fill_auto
+      appStore.start = storeLocalStorage.start
+      appStore.success = storeLocalStorage.success
+      appStore.first_name = storeLocalStorage.first_name
+      appStore.last_name = storeLocalStorage.last_name
+      appStore.date_of_birth = storeLocalStorage.date_of_birth
+      appStore.email = storeLocalStorage.email
+      appStore.phone_code = storeLocalStorage.phone_code
+      appStore.phone = storeLocalStorage.phone
+      appStore.passport_type = storeLocalStorage.passport_type
+      appStore.passport_no = storeLocalStorage.passport_no
+      appStore.ppt_issue_date = storeLocalStorage.ppt_issue_date
+      appStore.ppt_expiry_date = storeLocalStorage.ppt_expiry_date
+      appStore.ppt_issue_palace = storeLocalStorage.ppt_issue_palace
+      appStore.juridiction = storeLocalStorage.juridiction
+      appStore.visa_no = storeLocalStorage.visa_no
+      appStore.visa_type = storeLocalStorage.visa_type
+      appStore.veryfication_code = storeLocalStorage.veryfication_code
+    }
+    if (appStore.start) {
+      this.init()
+    }
   }
   init = () => {
     $(".popupBG-app").hide();
     $("#IDBodyPanelapp").hide();
+    var tokenvalue = $('#csrftokenvalue').val();
+    if (tokenvalue === undefined) {
+      appStore.message = 'maybe thé site closed now !'
+      reloadSetTimeout()
+    } else {
+      var email = appStore.email
+      var jurisId = appStore.juridiction
+      var phoneCode = appStore.phone_code
+      var mobileNo = appStore.phone
+      var visa = appStore.visa_no
+      document.getElementById('email').value = email
+      document.getElementById('juridiction').value = jurisId
+      document.getElementById("phone_code").value = phoneCode
+      document.getElementById("phone").value = mobileNo
+      document.getElementById("visa_no").value = visa
+      if (mobileNo != '' && phoneCode != '' && jurisId[2] != '') {
+        $.ajax({
+          type: "POST",
+          data: "gofor=send_mail&email=" + email + "&phone_code=" + phoneCode + "&phone_no=" + mobileNo + "&center_id=" + jurisId[2] + "&visa=" + visa + "&token=" + tokenvalue,
+          url: "ajax.php",
+          success: function (response) {
+            if (response.trim() == "full") {
+              appStore.message = 'Appointment dates are not available.'
+              reloadSetTimeout()
+              $("#reponse_div").html("Appointment dates are not available.");
+            } else if (response.trim() == "fail") {
+              appStore.message = 'You have already booked appointment with this phone. Please try with another number.'
+              reloadSetTimeout()
+              $("#reponse_div").html("You have already booked appointment with this phone. Please try with another number.");
+            } else if (response.trim() == "same") {
+              appStore.message = 'Please used last sent verification code.'
+              appStore.success = true
+              $("#reponse_div").html("Please used last sent verification code.");
+            } else if (response.trim() == "error") {
+              appStore.message = 'Please check your phone number and country code for phone.'
+              reloadSetTimeout()
+              $("#reponse_div").html("Please check your phone number and country code for phone.");
+            } else if (response.trim() == "CSRF Token validation Failed") {
+              appStore.message = 'Token validation Failed! Please refresh your page.'
+              reloadSetTimeout()
+              $("#reponse_div").html("Token validation Failed! Please refresh your page.");
+            } else if (response.trim() == "pass") {
+              appStore.message = 'Verification code sent to your phone.'
+              appStore.success = true
+              $("#reponse_div").html("Verification code sent to your phone.");
+              $(".btn-check-otp").attr('disabled', 'disabled');
+            } else {
+              reloadSetTimeout()
+            }
+          }
+        })
+      } else {
+        appStore.message = 'error while trying to fetch !!'
+        reloadSetTimeout()
+      }
+    }
   }
   _onStart = () => {
     if (appStore.start) {
       // do to stope
       appStore.start = false
     } else {
-      // do start
       appStore.start = true
+      this.init()
     }
   }
   _fill = () => {
-    // do fill data
+    var dd = document.getElementsByClassName('col-sm-8 container')
+    if (dd !== null && dd.length > 0) {
+      var d = dd[0]
+      var inner = d.innerHTML
+      var i = inner.search("available_dates")
+      if (i !== -1) {
+        var s = ''
+        for (let x = i; i < inner.length; x++) {
+          if (inner[x] === ']') {
+            break
+          }
+          s += inner[x]
+        }
+        s += ']'
+        s = s.split('=')[1]
+        var date = eval(s)[0]
+        document.getElementById('app_date').value = date.split('-').reverse().join('-')
+        document.getElementById('app_time').value = '10:00 - 10:10'
+        document.getElementById('VisaTypeId').value = appStore.visa_type
+        document.getElementById('first_name').value = appStore.first_name
+        document.getElementById('last_name').value = appStore.last_name
+        document.getElementById('dateOfBirth').value = appStore.date_of_birth
+        document.getElementById('phone_code').value = appStore.phone_code
+        document.getElementById('phone').value = appStore.phone
+        document.getElementById('nationalityId').value = appStore.nationality
+        document.getElementById('passportType').value = appStore.passport_type
+        document.getElementById('passport_no').value = appStore.passport_no
+        document.getElementById('pptIssueDate').value = appStore.ppt_issue_date
+        document.getElementById('pptExpiryDate').value = appStore.ppt_expiry_date
+        document.getElementById('pptIssuePalace').value = appStore.ppt_issue_palace
+        appStore.message = 'fill data success'
+      } else {
+        appStore.message = 'fill data error'
+      }
+    }
+
   }
   _codeChange = (e) => {
     appStore.veryfication_code = e.target.value
     appStore.start = false
   }
+
   render() {
     return (
       <div style={{
@@ -232,13 +362,35 @@ class App extends Component {
         padding: 10,
         opacity: 0.95,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        justifyContent: 'center'
       }} id="reactAppDiv">
-        <input type='text' placeholder='veryfication_code' value={appStore.veryfication_code} onChange={this._codeChange} />
+        <input
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              if (document.getElementById('otpvr') !== null) {
+                document.getElementById('email').value = appStore.email
+                document.getElementById('juridiction').value = appStore.juridiction
+                document.getElementById("phone_code").value = appStore.phone_code
+                document.getElementById("phone").value = appStore.phone
+                document.getElementById("visa_no").value = appStore.visa_no
+                document.getElementById('otpvr').value = appStore.veryfication_code
+                $('#recaptcha-token').click()
+              } else {
+                appStore.message = 'veryfication code input field not found !'
+              }
+            }
+          }}
+          type='text' placeholder='veryfication code and press Enter ' value={appStore.veryfication_code} onChange={this._codeChange} />
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <button style={{ flex: 1 }} onClick={this._fill}>fill data</button>
           <button style={{ flex: 1, backgroundColor: appStore.start ? '#d8e647' : '#eaaeae' }} onClick={this._onStart}>{appStore.start ? 'click to stop' : 'click to start'}</button>
+          <button style={{ flex: 1 }} onClick={()=>{
+            localStorage.clear()
+            document.location.reload()
+          }}>default</button>
         </div>
+        <span style={{ alignSelf: 'center' }}>{appStore.message}</span>
         <hr />
         <span onClick={() => appStore.showTable = !appStore.showTable} style={{ alignSelf: 'center', cursor: 'pointer' }}>{appStore.showTable ? '🡅' : '🡇'}</span>
         {

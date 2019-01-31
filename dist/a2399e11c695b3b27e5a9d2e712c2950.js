@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({13:[function(require,module,exports) {
+})({14:[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -174,12 +174,12 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var emptyObject = {};
 
-if ('development' !== 'production') {
+if ('production' !== 'production') {
   Object.freeze(emptyObject);
 }
 
 module.exports = emptyObject;
-},{}],16:[function(require,module,exports) {
+},{}],18:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -216,7 +216,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],6:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -239,7 +239,7 @@ var U={Children:{map:function(a,b,e){if(null==a)return a;var c=[];T(a,c,null,b,e
 d=a.key,g=a.ref,k=a._owner;if(null!=b){void 0!==b.ref&&(g=b.ref,k=G.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(h in b)H.call(b,h)&&!I.hasOwnProperty(h)&&(c[h]=void 0===b[h]&&void 0!==f?f[h]:b[h])}var h=arguments.length-2;if(1===h)c.children=e;else if(1<h){f=Array(h);for(var l=0;l<h;l++)f[l]=arguments[l+2];c.children=f}return{$$typeof:r,type:a.type,key:d,ref:g,props:c,_owner:k}},createFactory:function(a){var b=J.bind(null,a);b.type=a;return b},
 isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:G,assign:m}},V=Object.freeze({default:U}),W=V&&U||V;module.exports=W["default"]?W["default"]:W;
 
-},{"object-assign":13,"fbjs/lib/emptyObject":17,"fbjs/lib/emptyFunction":16}],18:[function(require,module,exports) {
+},{"object-assign":14,"fbjs/lib/emptyObject":17,"fbjs/lib/emptyFunction":18}],19:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -263,7 +263,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 var validateFormat = function validateFormat(format) {};
 
-if ('development' !== 'production') {
+if ('production' !== 'production') {
   validateFormat = function validateFormat(format) {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
@@ -293,7 +293,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-},{}],25:[function(require,module,exports) {
+},{}],20:[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -315,7 +315,7 @@ var emptyFunction = require('./emptyFunction');
 
 var warning = emptyFunction;
 
-if ('development' !== 'production') {
+if ('production' !== 'production') {
   var printWarning = function printWarning(format) {
     for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       args[_key - 1] = arguments[_key];
@@ -356,7 +356,7 @@ if ('development' !== 'production') {
 }
 
 module.exports = warning;
-},{"./emptyFunction":16}],15:[function(require,module,exports) {
+},{"./emptyFunction":18}],16:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -370,7 +370,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],14:[function(require,module,exports) {
+},{}],15:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -380,7 +380,7 @@ module.exports = ReactPropTypesSecret;
 
 'use strict';
 
-if ('development' !== 'production') {
+if ('production' !== 'production') {
   var invariant = require('fbjs/lib/invariant');
   var warning = require('fbjs/lib/warning');
   var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
@@ -399,7 +399,7 @@ if ('development' !== 'production') {
  * @private
  */
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if ('development' !== 'production') {
+  if ('production' !== 'production') {
     for (var typeSpecName in typeSpecs) {
       if (typeSpecs.hasOwnProperty(typeSpecName)) {
         var error;
@@ -430,7 +430,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 }
 
 module.exports = checkPropTypes;
-},{"fbjs/lib/invariant":18,"fbjs/lib/warning":25,"./lib/ReactPropTypesSecret":15}],7:[function(require,module,exports) {
+},{"fbjs/lib/invariant":19,"fbjs/lib/warning":20,"./lib/ReactPropTypesSecret":16}],8:[function(require,module,exports) {
 /** @license React v16.2.0
  * react.development.js
  *
@@ -442,7 +442,7 @@ module.exports = checkPropTypes;
 
 'use strict';
 
-if ('development' !== "production") {
+if ('production' !== "production") {
   (function () {
     'use strict';
 
@@ -1782,15 +1782,15 @@ if ('development' !== "production") {
     module.exports = react;
   })();
 }
-},{"object-assign":13,"fbjs/lib/emptyObject":17,"fbjs/lib/invariant":18,"fbjs/lib/warning":25,"fbjs/lib/emptyFunction":16,"prop-types/checkPropTypes":14}],4:[function(require,module,exports) {
+},{"object-assign":14,"fbjs/lib/emptyObject":17,"fbjs/lib/invariant":19,"fbjs/lib/warning":20,"fbjs/lib/emptyFunction":18,"prop-types/checkPropTypes":15}],5:[function(require,module,exports) {
 'use strict';
 
-if ('development' === 'production') {
+if ('production' === 'production') {
   module.exports = require('./cjs/react.production.min.js');
 } else {
   module.exports = require('./cjs/react.development.js');
 }
-},{"./cjs/react.production.min.js":6,"./cjs/react.development.js":7}],24:[function(require,module,exports) {
+},{"./cjs/react.production.min.js":7,"./cjs/react.development.js":8}],21:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1824,7 +1824,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],19:[function(require,module,exports) {
+},{}],22:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -1886,7 +1886,7 @@ var EventListener = {
         }
       };
     } else {
-      if ('development' !== 'production') {
+      if ('production' !== 'production') {
         console.error('Attempted to listen to events during the capture phase on a ' + 'browser that does not support the capture phase. Your application ' + 'will not receive some events.');
       }
       return {
@@ -1899,7 +1899,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-},{"./emptyFunction":16}],20:[function(require,module,exports) {
+},{"./emptyFunction":18}],23:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -1936,7 +1936,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],21:[function(require,module,exports) {
+},{}],24:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2002,7 +2002,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],31:[function(require,module,exports) {
+},{}],32:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2025,7 +2025,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],28:[function(require,module,exports) {
+},{}],29:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2048,7 +2048,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":31}],22:[function(require,module,exports) {
+},{"./isNode":32}],25:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2086,7 +2086,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":28}],23:[function(require,module,exports) {
+},{"./isTextNode":29}],26:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2111,7 +2111,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],8:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -2342,7 +2342,7 @@ var Sg={createPortal:Qg,findDOMNode:function(a){if(null==a)return null;if(1===a.
 E("40");return a._reactRootContainer?(Z.unbatchedUpdates(function(){Pg(null,null,a,!1,function(){a._reactRootContainer=null})}),!0):!1},unstable_createPortal:Qg,unstable_batchedUpdates:tc,unstable_deferredUpdates:Z.deferredUpdates,flushSync:Z.flushSync,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:mb,EventPluginRegistry:Va,EventPropagators:Cb,ReactControlledComponent:qc,ReactDOMComponentTree:sb,ReactDOMEventListener:xd}};
 Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",rendererPackageName:"react-dom"});var Tg=Object.freeze({default:Sg}),Ug=Tg&&Sg||Tg;module.exports=Ug["default"]?Ug["default"]:Ug;
 
-},{"react":4,"fbjs/lib/ExecutionEnvironment":24,"object-assign":13,"fbjs/lib/emptyFunction":16,"fbjs/lib/EventListener":19,"fbjs/lib/getActiveElement":20,"fbjs/lib/shallowEqual":21,"fbjs/lib/containsNode":22,"fbjs/lib/focusNode":23,"fbjs/lib/emptyObject":17}],29:[function(require,module,exports) {
+},{"react":5,"fbjs/lib/ExecutionEnvironment":21,"object-assign":14,"fbjs/lib/emptyFunction":18,"fbjs/lib/EventListener":22,"fbjs/lib/getActiveElement":23,"fbjs/lib/shallowEqual":24,"fbjs/lib/containsNode":25,"fbjs/lib/focusNode":26,"fbjs/lib/emptyObject":17}],30:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2373,7 +2373,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],26:[function(require,module,exports) {
+},{}],27:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2410,7 +2410,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":29}],30:[function(require,module,exports) {
+},{"./hyphenate":30}],31:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -2440,7 +2440,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],27:[function(require,module,exports) {
+},{}],28:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2478,7 +2478,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":30}],9:[function(require,module,exports) {
+},{"./camelize":31}],10:[function(require,module,exports) {
 /** @license React v16.2.0
  * react-dom.development.js
  *
@@ -2490,7 +2490,7 @@ module.exports = camelizeStyleName;
 
 'use strict';
 
-if ('development' !== "production") {
+if ('production' !== "production") {
   (function () {
     'use strict';
 
@@ -17836,7 +17836,7 @@ if ('development' !== "production") {
     module.exports = reactDom;
   })();
 }
-},{"react":4,"fbjs/lib/invariant":18,"fbjs/lib/warning":25,"fbjs/lib/ExecutionEnvironment":24,"object-assign":13,"fbjs/lib/emptyFunction":16,"fbjs/lib/EventListener":19,"fbjs/lib/getActiveElement":20,"fbjs/lib/shallowEqual":21,"fbjs/lib/containsNode":22,"fbjs/lib/focusNode":23,"fbjs/lib/emptyObject":17,"prop-types/checkPropTypes":14,"fbjs/lib/hyphenateStyleName":26,"fbjs/lib/camelizeStyleName":27}],5:[function(require,module,exports) {
+},{"react":5,"fbjs/lib/invariant":19,"fbjs/lib/warning":20,"fbjs/lib/ExecutionEnvironment":21,"object-assign":14,"fbjs/lib/emptyFunction":18,"fbjs/lib/EventListener":22,"fbjs/lib/getActiveElement":23,"fbjs/lib/shallowEqual":24,"fbjs/lib/containsNode":25,"fbjs/lib/focusNode":26,"fbjs/lib/emptyObject":17,"prop-types/checkPropTypes":15,"fbjs/lib/hyphenateStyleName":27,"fbjs/lib/camelizeStyleName":28}],6:[function(require,module,exports) {
 'use strict';
 
 function checkDCE() {
@@ -17844,7 +17844,7 @@ function checkDCE() {
   if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
     return;
   }
-  if ('development' !== 'production') {
+  if ('production' !== 'production') {
     // This branch is unreachable because this function is only called
     // in production, but the condition is true only in development.
     // Therefore if the branch is still here, dead code elimination wasn't
@@ -17864,7 +17864,7 @@ function checkDCE() {
   }
 }
 
-if ('development' === 'production') {
+if ('production' === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
@@ -17872,7 +17872,7 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.production.min.js":8,"./cjs/react-dom.development.js":9}],12:[function(require,module,exports) {
+},{"./cjs/react-dom.production.min.js":9,"./cjs/react-dom.development.js":10}],13:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -18059,7 +18059,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],10:[function(require,module,exports) {
+},{}],11:[function(require,module,exports) {
 var process = require("process");
 var global = (1,eval)("this");
 "use strict";
@@ -18165,7 +18165,7 @@ function invariant$$1(check, message) {
  */
 var deprecatedMessages = [];
 function deprecated$$1(msg, thing) {
-    if ("development" === "production") return false;
+    if ("production" === "production") return false;
     if (thing) {
         return deprecated$$1("'" + msg + "', use '" + thing + "' instead.");
     }
@@ -18223,7 +18223,7 @@ function isPropertyConfigurable$$1(object, prop) {
     return !descriptor || descriptor.configurable !== false && descriptor.writable !== false;
 }
 function assertPropertyConfigurable$$1(object, prop) {
-    if ("development" !== "production" && !isPropertyConfigurable$$1(object, prop)) fail$$1("Cannot make property '" + prop.toString() + "' observable, it is not configurable and writable in the target object");
+    if ("production" !== "production" && !isPropertyConfigurable$$1(object, prop)) fail$$1("Cannot make property '" + prop.toString() + "' observable, it is not configurable and writable in the target object");
 }
 function createInstanceofPredicate$$1(name, clazz) {
     var propName = "isMobX" + name;
@@ -18385,7 +18385,7 @@ function createPropDecorator$$1(propertyInitiallyEnumerable, propertyCreator) {
                 propertyCreator(target, prop, descriptor, target, decoratorArguments);
                 return null;
             }
-            if ("development" !== "production" && !quacksLikeADecorator$$1(arguments)) fail$$1("This function is a decorator, but it wasn't invoked like a decorator");
+            if ("production" !== "production" && !quacksLikeADecorator$$1(arguments)) fail$$1("This function is a decorator, but it wasn't invoked like a decorator");
             if (!Object.prototype.hasOwnProperty.call(target, mobxPendingDecorators$$1)) {
                 var inheritedDecorators = target[mobxPendingDecorators$$1];
                 addHiddenProp$$1(target, mobxPendingDecorators$$1, __assign({}, inheritedDecorators));
@@ -18431,14 +18431,14 @@ function shallowEnhancer$$1(v, _, name) {
     if (isPlainObject$$1(v)) return observable$$1.object(v, undefined, { name: name, deep: false });
     if (isES6Map$$1(v)) return observable$$1.map(v, { name: name, deep: false });
     if (isES6Set$$1(v)) return observable$$1.set(v, { name: name, deep: false });
-    return fail$$1("development" !== "production" && "The shallow modifier / decorator can only used in combination with arrays, objects, maps and sets");
+    return fail$$1("production" !== "production" && "The shallow modifier / decorator can only used in combination with arrays, objects, maps and sets");
 }
 function referenceEnhancer$$1(newValue) {
     // never turn into an observable
     return newValue;
 }
 function refStructEnhancer$$1(v, oldValue, name) {
-    if ("development" !== "production" && isObservable$$1(v)) throw "observable.struct should not be used with observable values";
+    if ("production" !== "production" && isObservable$$1(v)) throw "observable.struct should not be used with observable values";
     if (deepEqual$$1(v, oldValue)) return oldValue;
     return v;
 }
@@ -18446,7 +18446,7 @@ function refStructEnhancer$$1(v, oldValue, name) {
 function createDecoratorForEnhancer$$1(enhancer) {
     invariant$$1(enhancer);
     var decorator = createPropDecorator$$1(true, function (target, propertyName, descriptor, _decoratorTarget, decoratorArgs) {
-        if ("development" !== "production") {
+        if ("production" !== "production") {
             invariant$$1(!descriptor || !descriptor.get, "@observable cannot be used on getter (property \"" + propertyName + "\"), use @computed instead.");
         }
         var initialValue = descriptor ? descriptor.initializer ? descriptor.initializer.call(target) : descriptor.value : undefined;
@@ -18454,7 +18454,7 @@ function createDecoratorForEnhancer$$1(enhancer) {
     });
     var res =
     // Extra process checks, as this happens during module initialization
-    typeof process !== "undefined" && process.env && "development" !== "production" ? function observableDecorator() {
+    typeof process !== "undefined" && process.env && "production" !== "production" ? function observableDecorator() {
         // This wrapper function is just to detect illegal decorator invocations, deprecate in a next version
         // and simply return the created prop decorator
         if (arguments.length < 2) return fail$$1("Incorrect decorator invocation. @observable decorator doesn't expect any arguments");
@@ -18479,7 +18479,7 @@ function assertValidOption(key) {
 function asCreateObservableOptions$$1(thing) {
     if (thing === null || thing === undefined) return defaultCreateObservableOptions$$1;
     if (typeof thing === "string") return { name: thing, deep: true, proxy: true };
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         if (typeof thing !== "object") return fail$$1("expected options object");
         Object.keys(thing).forEach(assertValidOption);
     }
@@ -18508,7 +18508,7 @@ function createObservable(v, arg2, arg3) {
     // this value could be converted to a new observable data structure, return it
     if (res !== v) return res;
     // otherwise, just box it
-    fail$$1("development" !== "production" && "The provided value could not be converted into an observable. If you want just create an observable reference to the object use 'observable.box(value)'");
+    fail$$1("production" !== "production" && "The provided value could not be converted into an observable. If you want just create an observable reference to the object use 'observable.box(value)'");
 }
 var observableFactories = {
     box: function (value, options) {
@@ -18585,7 +18585,7 @@ var computed$$1 = function computed$$1(arg1, arg2, arg3) {
         return computedDecorator$$1.apply(null, arguments);
     }
     // computed(expr, options?)
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(typeof arg1 === "function", "First argument to `computed` should be an expression.");
         invariant$$1(arguments.length < 3, "Computed takes one or two arguments if used as function");
     }
@@ -18598,7 +18598,7 @@ var computed$$1 = function computed$$1(arg1, arg2, arg3) {
 computed$$1.struct = computedStructDecorator;
 
 function createAction$$1(actionName, fn) {
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(typeof fn === "function", "`action` can only be invoked on functions");
         if (typeof actionName !== "string" || !actionName) fail$$1("actions should have valid names, got: '" + actionName + "'");
     }
@@ -18628,7 +18628,7 @@ function executeAction$$1(actionName, fn, scope, args) {
 function startAction(actionName, fn, scope, args) {
     var notifySpy = isSpyEnabled$$1() && !!actionName;
     var startTime = 0;
-    if (notifySpy && "development" !== "production") {
+    if (notifySpy && "production" !== "production") {
         startTime = Date.now();
         var l = args && args.length || 0;
         var flattendArgs = new Array(l);
@@ -18654,7 +18654,7 @@ function endAction(runInfo) {
     allowStateChangesEnd$$1(runInfo.prevAllowStateChanges);
     endBatch$$1();
     untrackedEnd$$1(runInfo.prevDerivation);
-    if (runInfo.notifySpy && "development" !== "production") spyReportEnd$$1({ time: Date.now() - runInfo.startTime });
+    if (runInfo.notifySpy && "production" !== "production") spyReportEnd$$1({ time: Date.now() - runInfo.startTime });
 }
 function allowStateChanges$$1(allowStateChanges$$1, func) {
     var prev = allowStateChangesStart$$1(allowStateChanges$$1);
@@ -18704,7 +18704,7 @@ var ObservableValue$$1 = /** @class */function (_super) {
         _this.equals = equals;
         _this.hasUnreportedChange = false;
         _this.value = enhancer(value, undefined, name);
-        if (notifySpy && isSpyEnabled$$1() && "development" !== "production") {
+        if (notifySpy && isSpyEnabled$$1() && "production" !== "production") {
             // only notify spy if this is a stand-alone observable
             spyReport$$1({ type: "create", name: _this.name, newValue: "" + _this.value });
         }
@@ -18719,7 +18719,7 @@ var ObservableValue$$1 = /** @class */function (_super) {
         newValue = this.prepareNewValue(newValue);
         if (newValue !== globalState$$1.UNCHANGED) {
             var notifySpy = isSpyEnabled$$1();
-            if (notifySpy && "development" !== "production") {
+            if (notifySpy && "production" !== "production") {
                 spyReportStart$$1({
                     type: "update",
                     name: this.name,
@@ -18728,7 +18728,7 @@ var ObservableValue$$1 = /** @class */function (_super) {
                 });
             }
             this.setNewValue(newValue);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
         }
     };
     ObservableValue$$1.prototype.prepareNewValue = function (newValue) {
@@ -18840,7 +18840,7 @@ var ComputedValue$$1 = /** @class */function () {
         this.isComputing = false; // to check for cycles
         this.isRunningSetter = false;
         this.isTracing = TraceMode$$1.NONE;
-        if ("development" !== "production" && !options.get) throw "[mobx] missing option for computed: get";
+        if ("production" !== "production" && !options.get) throw "[mobx] missing option for computed: get";
         this.derivation = options.get;
         this.name = options.name || "ComputedValue@" + getNextId$$1();
         if (options.set) this.setter = createAction$$1(this.name + "-setter", options.set);
@@ -18901,10 +18901,10 @@ var ComputedValue$$1 = /** @class */function () {
             } finally {
                 this.isRunningSetter = false;
             }
-        } else invariant$$1(false, "development" !== "production" && "[ComputedValue '" + this.name + "'] It is not possible to assign a new value to a computed value.");
+        } else invariant$$1(false, "production" !== "production" && "[ComputedValue '" + this.name + "'] It is not possible to assign a new value to a computed value.");
     };
     ComputedValue$$1.prototype.trackAndCompute = function () {
-        if (isSpyEnabled$$1() && "development" !== "production") {
+        if (isSpyEnabled$$1() && "production" !== "production") {
             spyReport$$1({
                 object: this.scope,
                 type: "compute",
@@ -18969,7 +18969,7 @@ var ComputedValue$$1 = /** @class */function () {
         });
     };
     ComputedValue$$1.prototype.warnAboutUntrackedRead = function () {
-        if ("development" === "production") return;
+        if ("production" === "production") return;
         if (this.requiresReaction === true) {
             fail$$1("[mobx] Computed value " + this.name + " is read outside a reactive context");
         }
@@ -19099,9 +19099,9 @@ function isComputingDerivation$$1() {
 function checkIfStateModificationsAreAllowed$$1(atom) {
     var hasObservers$$1 = atom.observers.size > 0;
     // Should never be possible to change an observed observable from inside computed, see #798
-    if (globalState$$1.computationDepth > 0 && hasObservers$$1) fail$$1("development" !== "production" && "Computed values are not allowed to cause side effects by changing observables that are already being observed. Tried to modify: " + atom.name);
+    if (globalState$$1.computationDepth > 0 && hasObservers$$1) fail$$1("production" !== "production" && "Computed values are not allowed to cause side effects by changing observables that are already being observed. Tried to modify: " + atom.name);
     // Should not be possible to change observed state outside strict mode, except during initialization, see #563
-    if (!globalState$$1.allowStateChanges && (hasObservers$$1 || globalState$$1.enforceActions === "strict")) fail$$1("development" !== "production" && (globalState$$1.enforceActions ? "Since strict-mode is enabled, changing observed observable values outside actions is not allowed. Please wrap the code in an `action` if this change is intended. Tried to modify: " : "Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, the render function of a React component? Tried to modify: ") + atom.name);
+    if (!globalState$$1.allowStateChanges && (hasObservers$$1 || globalState$$1.enforceActions === "strict")) fail$$1("production" !== "production" && (globalState$$1.enforceActions ? "Since strict-mode is enabled, changing observed observable values outside actions is not allowed. Please wrap the code in an `action` if this change is intended. Tried to modify: " : "Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, the render function of a React component? Tried to modify: ") + atom.name);
 }
 /**
  * Executes the provided function `f` and tracks which observables are being accessed.
@@ -19595,7 +19595,7 @@ var Reaction$$1 = /** @class */function () {
                 this._isTrackPending = true;
                 try {
                     this.onInvalidate();
-                    if (this._isTrackPending && isSpyEnabled$$1() && "development" !== "production") {
+                    if (this._isTrackPending && isSpyEnabled$$1() && "production" !== "production") {
                         // onInvalidate didn't trigger track right away..
                         spyReport$$1({
                             name: this.name,
@@ -19613,7 +19613,7 @@ var Reaction$$1 = /** @class */function () {
         startBatch$$1();
         var notify = isSpyEnabled$$1();
         var startTime;
-        if (notify && "development" !== "production") {
+        if (notify && "production" !== "production") {
             startTime = Date.now();
             spyReportStart$$1({
                 name: this.name,
@@ -19629,7 +19629,7 @@ var Reaction$$1 = /** @class */function () {
             clearObserving$$1(this);
         }
         if (isCaughtException$$1(result)) this.reportExceptionInDerivation(result.cause);
-        if (notify && "development" !== "production") {
+        if (notify && "production" !== "production") {
             spyReportEnd$$1({
                 time: Date.now() - startTime
             });
@@ -19738,26 +19738,26 @@ function setReactionScheduler$$1(fn) {
 }
 
 function isSpyEnabled$$1() {
-    return "development" !== "production" && !!globalState$$1.spyListeners.length;
+    return "production" !== "production" && !!globalState$$1.spyListeners.length;
 }
 function spyReport$$1(event) {
-    if ("development" === "production") return; // dead code elimination can do the rest
+    if ("production" === "production") return; // dead code elimination can do the rest
     if (!globalState$$1.spyListeners.length) return;
     var listeners = globalState$$1.spyListeners;
     for (var i = 0, l = listeners.length; i < l; i++) listeners[i](event);
 }
 function spyReportStart$$1(event) {
-    if ("development" === "production") return;
+    if ("production" === "production") return;
     var change = __assign({}, event, { spyReportStart: true });
     spyReport$$1(change);
 }
 var END_EVENT = { spyReportEnd: true };
 function spyReportEnd$$1(change) {
-    if ("development" === "production") return;
+    if ("production" === "production") return;
     if (change) spyReport$$1(__assign({}, change, { spyReportEnd: true }));else spyReport$$1(END_EVENT);
 }
 function spy$$1(listener) {
-    if ("development" === "production") {
+    if ("production" === "production") {
         console.warn("[mobx.spy] Is a no-op in production builds");
         return function () {};
     } else {
@@ -19771,12 +19771,12 @@ function spy$$1(listener) {
 }
 
 function dontReassignFields() {
-    fail$$1("development" !== "production" && "@action fields are not reassignable");
+    fail$$1("production" !== "production" && "@action fields are not reassignable");
 }
 function namedActionDecorator$$1(name) {
     return function (target, prop, descriptor) {
         if (descriptor) {
-            if ("development" !== "production" && descriptor.get !== undefined) {
+            if ("production" !== "production" && descriptor.get !== undefined) {
                 return fail$$1("@action cannot be used with getters");
             }
             // babel / typescript
@@ -19872,7 +19872,7 @@ action$$1.bound = boundActionDecorator$$1;
 function runInAction$$1(arg1, arg2) {
     var actionName = typeof arg1 === "string" ? arg1 : arg1.name || "<unnamed action>";
     var fn = typeof arg1 === "function" ? arg1 : arg2;
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(typeof fn === "function" && fn.length === 0, "`runInAction` expects a function without arguments");
         if (typeof actionName !== "string" || !actionName) fail$$1("actions should have valid names, got: '" + actionName + "'");
     }
@@ -19895,7 +19895,7 @@ function autorun$$1(view, opts) {
     if (opts === void 0) {
         opts = EMPTY_OBJECT$$1;
     }
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(typeof view === "function", "Autorun expects a function as first argument");
         invariant$$1(isAction$$1(view) === false, "Autorun does not accept actions since actions are untrackable");
     }
@@ -19939,7 +19939,7 @@ function reaction$$1(expression, effect, opts) {
     if (opts === void 0) {
         opts = EMPTY_OBJECT$$1;
     }
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(typeof expression === "function", "First argument to reaction should be a function");
         invariant$$1(typeof opts === "object", "Third argument of reactions should be an object");
     }
@@ -20001,7 +20001,7 @@ function interceptHook(hook, thing, arg2, arg3) {
         atom[listenersKey] = new Set([cb]);
     }
     var orig = atom[hook];
-    if (typeof orig !== "function") return fail$$1("development" !== "production" && "Not an atom that can be (un)observed");
+    if (typeof orig !== "function") return fail$$1("production" !== "production" && "Not an atom that can be (un)observed");
     return function () {
         var hookListeners = atom[listenersKey];
         if (hookListeners) {
@@ -20056,14 +20056,14 @@ function configure$$1(options) {
 }
 
 function decorate$$1(thing, decorators) {
-    "development" !== "production" && invariant$$1(isPlainObject$$1(decorators), "Decorators should be a key value map");
+    "production" !== "production" && invariant$$1(isPlainObject$$1(decorators), "Decorators should be a key value map");
     var target = typeof thing === "function" ? thing.prototype : thing;
     var _loop_1 = function (prop) {
         var propertyDecorators = decorators[prop];
         if (!Array.isArray(propertyDecorators)) {
             propertyDecorators = [propertyDecorators];
         }
-        "development" !== "production" && invariant$$1(propertyDecorators.every(function (decorator) {
+        "production" !== "production" && invariant$$1(propertyDecorators.every(function (decorator) {
             return typeof decorator === "function";
         }), "Decorate: expected a decorator function or array of decorator functions for '" + prop + "'");
         var descriptor = Object.getOwnPropertyDescriptor(target, prop);
@@ -20079,7 +20079,7 @@ function decorate$$1(thing, decorators) {
 }
 
 function extendObservable$$1(target, properties, decorators, options) {
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(arguments.length >= 2 && arguments.length <= 4, "'extendObservable' expected 2-4 arguments");
         invariant$$1(typeof target === "object", "'extendObservable' expects an object as first argument");
         invariant$$1(!isObservableMap$$1(target), "'extendObservable' should not be used on maps, use map.merge instead");
@@ -20095,7 +20095,7 @@ function getDefaultDecoratorFromObjectOptions$$1(options) {
     return options.defaultDecorator || (options.deep === false ? refDecorator$$1 : deepDecorator$$1);
 }
 function extendObservableObjectWithProperties$$1(target, properties, decorators, defaultDecorator) {
-    if ("development" !== "production") {
+    if ("production" !== "production") {
         invariant$$1(!isObservable$$1(properties), "Extending an object with another observable (object) is not supported. Please construct an explicit propertymap, using `toJS` if need. See issue #540");
         if (decorators) for (var key in decorators) if (!(key in properties)) fail$$1("Trying to declare a decorator for unspecified property '" + key + "'");
     }
@@ -20103,12 +20103,12 @@ function extendObservableObjectWithProperties$$1(target, properties, decorators,
     try {
         for (var key in properties) {
             var descriptor = Object.getOwnPropertyDescriptor(properties, key);
-            if ("development" !== "production") {
+            if ("production" !== "production") {
                 if (Object.getOwnPropertyDescriptor(target, key)) fail$$1("'extendObservable' can only be used to introduce new properties. Use 'set' or 'decorate' instead. The property '" + key + "' already exists on '" + target + "'");
                 if (isComputed$$1(descriptor.value)) fail$$1("Passing a 'computed' as initial property value is no longer supported by extendObservable. Use a getter or decorator instead");
             }
             var decorator = decorators && key in decorators ? decorators[key] : descriptor.get ? computedDecorator$$1 : defaultDecorator;
-            if ("development" !== "production" && typeof decorator !== "function") fail$$1("Not a valid decorator for '" + key + "', got: " + decorator);
+            if ("production" !== "production" && typeof decorator !== "function") fail$$1("Not a valid decorator for '" + key + "', got: " + decorator);
             var resultDescriptor = decorator(target, key, descriptor, true);
             if (resultDescriptor // otherwise, assume already applied, due to `applyToInstance`
             ) Object.defineProperty(target, key, resultDescriptor);
@@ -20141,7 +20141,7 @@ function nodeToObserverTree(node) {
 
 var generatorId = 0;
 function flow$$1(generator) {
-    if (arguments.length !== 1) fail$$1("development" && "Flow expects one 1 argument and cannot be used as decorator");
+    if (arguments.length !== 1) fail$$1("production" && "Flow expects one 1 argument and cannot be used as decorator");
     var name = generator.name || "<unnamed flow>";
     // Implementation based on https://github.com/tj/co/blob/master/index.js
     return function () {
@@ -20213,12 +20213,12 @@ function interceptReads$$1(thing, propOrHandler, handler) {
     if (isObservableMap$$1(thing) || isObservableArray$$1(thing) || isObservableValue$$1(thing)) {
         target = getAdministration$$1(thing);
     } else if (isObservableObject$$1(thing)) {
-        if (typeof propOrHandler !== "string") return fail$$1("development" !== "production" && "InterceptReads can only be used with a specific property, not with an object in general");
+        if (typeof propOrHandler !== "string") return fail$$1("production" !== "production" && "InterceptReads can only be used with a specific property, not with an object in general");
         target = getAdministration$$1(thing, propOrHandler);
     } else {
-        return fail$$1("development" !== "production" && "Expected observable map, object or array as first array");
+        return fail$$1("production" !== "production" && "Expected observable map, object or array as first array");
     }
-    if (target.dehancer !== undefined) return fail$$1("development" !== "production" && "An intercept reader was already established");
+    if (target.dehancer !== undefined) return fail$$1("production" !== "production" && "An intercept reader was already established");
     target.dehancer = typeof propOrHandler === "function" ? propOrHandler : handler;
     return function () {
         target.dehancer = undefined;
@@ -20246,18 +20246,18 @@ function _isComputed$$1(value, property) {
     return isComputedValue$$1(value);
 }
 function isComputed$$1(value) {
-    if (arguments.length > 1) return fail$$1("development" !== "production" && "isComputed expects only 1 argument. Use isObservableProp to inspect the observability of a property");
+    if (arguments.length > 1) return fail$$1("production" !== "production" && "isComputed expects only 1 argument. Use isObservableProp to inspect the observability of a property");
     return _isComputed$$1(value);
 }
 function isComputedProp$$1(value, propName) {
-    if (typeof propName !== "string") return fail$$1("development" !== "production" && "isComputed expected a property name as second argument");
+    if (typeof propName !== "string") return fail$$1("production" !== "production" && "isComputed expected a property name as second argument");
     return _isComputed$$1(value, propName);
 }
 
 function _isObservable(value, property) {
     if (value === null || value === undefined) return false;
     if (property !== undefined) {
-        if ("development" !== "production" && (isObservableMap$$1(value) || isObservableArray$$1(value))) return fail$$1("isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.");
+        if ("production" !== "production" && (isObservableMap$$1(value) || isObservableArray$$1(value))) return fail$$1("isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.");
         if (isObservableObject$$1(value)) {
             return value[$mobx$$1].values.has(property);
         }
@@ -20267,11 +20267,11 @@ function _isObservable(value, property) {
     return isObservableObject$$1(value) || !!value[$mobx$$1] || isAtom$$1(value) || isReaction$$1(value) || isComputedValue$$1(value);
 }
 function isObservable$$1(value) {
-    if (arguments.length !== 1) fail$$1("development" !== "production" && "isObservable expects only 1 argument. Use isObservableProp to inspect the observability of a property");
+    if (arguments.length !== 1) fail$$1("production" !== "production" && "isObservable expects only 1 argument. Use isObservableProp to inspect the observability of a property");
     return _isObservable(value);
 }
 function isObservableProp$$1(value, propName) {
-    if (typeof propName !== "string") return fail$$1("development" !== "production" && "expected a property name as second argument");
+    if (typeof propName !== "string") return fail$$1("production" !== "production" && "expected a property name as second argument");
     return _isObservable(value, propName);
 }
 
@@ -20290,7 +20290,7 @@ function keys$$1(obj) {
             return index;
         });
     }
-    return fail$$1("development" !== "production" && "'keys()' can only be used on observable objects, arrays, sets and maps");
+    return fail$$1("production" !== "production" && "'keys()' can only be used on observable objects, arrays, sets and maps");
 }
 function values$$1(obj) {
     if (isObservableObject$$1(obj)) {
@@ -20309,7 +20309,7 @@ function values$$1(obj) {
     if (isObservableArray$$1(obj)) {
         return obj.slice();
     }
-    return fail$$1("development" !== "production" && "'values()' can only be used on observable objects, arrays, sets and maps");
+    return fail$$1("production" !== "production" && "'values()' can only be used on observable objects, arrays, sets and maps");
 }
 function entries$$1(obj) {
     if (isObservableObject$$1(obj)) {
@@ -20330,7 +20330,7 @@ function entries$$1(obj) {
             return [index, key];
         });
     }
-    return fail$$1("development" !== "production" && "'entries()' can only be used on observable objects, arrays and maps");
+    return fail$$1("production" !== "production" && "'entries()' can only be used on observable objects, arrays and maps");
 }
 function set$$1(obj, key, value) {
     if (arguments.length === 2) {
@@ -20361,7 +20361,7 @@ function set$$1(obj, key, value) {
         obj[key] = value;
         endBatch$$1();
     } else {
-        return fail$$1("development" !== "production" && "'set()' can only be used on observable objects, arrays and maps");
+        return fail$$1("production" !== "production" && "'set()' can only be used on observable objects, arrays and maps");
     }
 }
 function remove$$1(obj, key) {
@@ -20377,7 +20377,7 @@ function remove$$1(obj, key) {
         invariant$$1(key >= 0, "Not a valid index: '" + key + "'");
         obj.splice(key, 1);
     } else {
-        return fail$$1("development" !== "production" && "'remove()' can only be used on observable objects, arrays and maps");
+        return fail$$1("production" !== "production" && "'remove()' can only be used on observable objects, arrays and maps");
     }
 }
 function has$$1(obj, key) {
@@ -20392,7 +20392,7 @@ function has$$1(obj, key) {
     } else if (isObservableArray$$1(obj)) {
         return key >= 0 && key < obj.length;
     } else {
-        return fail$$1("development" !== "production" && "'has()' can only be used on observable objects, arrays and maps");
+        return fail$$1("production" !== "production" && "'has()' can only be used on observable objects, arrays and maps");
     }
 }
 function get$$1(obj, key) {
@@ -20404,7 +20404,7 @@ function get$$1(obj, key) {
     } else if (isObservableArray$$1(obj)) {
         return obj[key];
     } else {
-        return fail$$1("development" !== "production" && "'get()' can only be used on observable objects, arrays and maps");
+        return fail$$1("production" !== "production" && "'get()' can only be used on observable objects, arrays and maps");
     }
 }
 
@@ -20506,7 +20506,7 @@ function trace$$1() {
     if (typeof args[args.length - 1] === "boolean") enterBreakPoint = args.pop();
     var derivation = getAtomFromArgs(args);
     if (!derivation) {
-        return fail$$1("development" !== "production" && "'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");
+        return fail$$1("production" !== "production" && "'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");
     }
     if (derivation.isTracing === TraceMode$$1.NONE) {
         console.log("[mobx.trace] '" + derivation.name + "' tracing enabled");
@@ -20570,7 +20570,7 @@ function _when(predicate, effect, opts) {
     return disposer;
 }
 function whenPromise(predicate, opts) {
-    if ("development" !== "production" && opts && opts.onError) return fail$$1("the options 'onError' and 'promise' cannot be combined");
+    if ("production" !== "production" && opts && opts.onError) return fail$$1("the options 'onError' and 'promise' cannot be combined");
     var cancel;
     var res = new Promise(function (resolve, reject) {
         var disposer = _when(predicate, resolve, __assign({}, opts, { onError: reject }));
@@ -20824,7 +20824,7 @@ var ObservableArrayAdministration = /** @class */function () {
         newItems = newItems.length === 0 ? newItems : newItems.map(function (v) {
             return _this.enhancer(v, undefined);
         });
-        if ("development" !== "production") {
+        if ("production" !== "production") {
             var lengthDelta = newItems.length - deleteCount;
             this.updateArrayLength(length, lengthDelta); // checks if internal array wasn't modified
         }
@@ -20854,10 +20854,10 @@ var ObservableArrayAdministration = /** @class */function () {
         } : null;
         // The reason why this is on right hand side here (and not above), is this way the uglifier will drop it, but it won't
         // cause any runtime overhead in development mode without NODE_ENV set, unless spying is enabled
-        if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.atom.name }));
+        if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.atom.name }));
         this.atom.reportChanged();
         if (notify) notifyListeners$$1(this, change);
-        if (notifySpy && "development" !== "production") spyReportEnd$$1();
+        if (notifySpy && "production" !== "production") spyReportEnd$$1();
     };
     ObservableArrayAdministration.prototype.notifyArraySplice = function (index, added, removed) {
         var notifySpy = !this.owned && isSpyEnabled$$1();
@@ -20871,11 +20871,11 @@ var ObservableArrayAdministration = /** @class */function () {
             removedCount: removed.length,
             addedCount: added.length
         } : null;
-        if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.atom.name }));
+        if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.atom.name }));
         this.atom.reportChanged();
         // conform: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe
         if (notify) notifyListeners$$1(this, change);
-        if (notifySpy && "development" !== "production") spyReportEnd$$1();
+        if (notifySpy && "production" !== "production") spyReportEnd$$1();
     };
     return ObservableArrayAdministration;
 }();
@@ -20962,7 +20962,7 @@ var arrayExtensions = {
         // reverse by default mutates in place before returning the result
         // which makes it both a 'derivation' and a 'mutation'.
         // so we deviate from the default and just make it an dervitation
-        if ("development" !== "production") {
+        if ("production" !== "production") {
             console.warn("[mobx] `observableArray.reverse()` will not update the array in place. Use `observableArray.slice().reverse()` to supress this warning and perform the operation on a copy, or `observableArray.replace(observableArray.slice().reverse())` to reverse & update in place");
         }
         var clone = this.slice();
@@ -20971,7 +20971,7 @@ var arrayExtensions = {
     sort: function (compareFn) {
         // sort by default mutates in place before returning the result
         // which goes against all good practices. Let's not change the array in place!
-        if ("development" !== "production") {
+        if ("production" !== "production") {
             console.warn("[mobx] `observableArray.sort()` will not update the array in place. Use `observableArray.slice().sort()` to supress this warning and perform the operation on a copy, or `observableArray.replace(observableArray.slice().sort())` to sort & update in place");
         }
         var clone = this.slice();
@@ -21111,7 +21111,7 @@ var ObservableMap$$1 = /** @class */function () {
                 oldValue: this._data.get(key).value,
                 name: key
             } : null;
-            if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
+            if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
             transaction$$1(function () {
                 _this._keysAtom.reportChanged();
                 _this._updateHasMapEntry(key, false);
@@ -21120,7 +21120,7 @@ var ObservableMap$$1 = /** @class */function () {
                 _this._data.delete(key);
             });
             if (notify) notifyListeners$$1(this, change);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
             return true;
         }
         return false;
@@ -21149,10 +21149,10 @@ var ObservableMap$$1 = /** @class */function () {
                 name: key,
                 newValue: newValue
             } : null;
-            if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
+            if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
             observable$$1.setNewValue(newValue);
             if (notify) notifyListeners$$1(this, change);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
         }
     };
     ObservableMap$$1.prototype._addValue = function (key, newValue) {
@@ -21173,9 +21173,9 @@ var ObservableMap$$1 = /** @class */function () {
             name: key,
             newValue: newValue
         } : null;
-        if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
+        if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
         if (notify) notifyListeners$$1(this, change);
-        if (notifySpy && "development" !== "production") spyReportEnd$$1();
+        if (notifySpy && "production" !== "production") spyReportEnd$$1();
     };
     ObservableMap$$1.prototype.get = function (key) {
         if (this.has(key)) return this.dehanceValue(this._data.get(key).get());
@@ -21360,7 +21360,7 @@ var ObservableMap$$1 = /** @class */function () {
      * for callback details
      */
     ObservableMap$$1.prototype.observe = function (listener, fireImmediately) {
-        "development" !== "production" && invariant$$1(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with maps.");
+        "production" !== "production" && invariant$$1(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with maps.");
         return registerListener$$1(this, listener);
     };
     ObservableMap$$1.prototype.intercept = function (handler) {
@@ -21474,9 +21474,9 @@ var ObservableSet$$1 = /** @class */function () {
                 object: this,
                 newValue: value
             } : null;
-            if (notifySpy && "development" !== "production") spyReportStart$$1(change);
+            if (notifySpy && "production" !== "production") spyReportStart$$1(change);
             if (notify) notifyListeners$$1(this, change);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
         }
         return this;
     };
@@ -21498,13 +21498,13 @@ var ObservableSet$$1 = /** @class */function () {
                 object: this,
                 oldValue: value
             } : null;
-            if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name }));
+            if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name }));
             transaction$$1(function () {
                 _this._atom.reportChanged();
                 _this._data.delete(value);
             });
             if (notify) notifyListeners$$1(this, change);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
             return true;
         }
         return false;
@@ -21563,7 +21563,7 @@ var ObservableSet$$1 = /** @class */function () {
     };
     ObservableSet$$1.prototype.observe = function (listener, fireImmediately) {
         // TODO 'fireImmediately' can be true?
-        "development" !== "production" && invariant$$1(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with sets.");
+        "production" !== "production" && invariant$$1(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with sets.");
         return registerListener$$1(this, listener);
     };
     ObservableSet$$1.prototype.intercept = function (handler) {
@@ -21626,10 +21626,10 @@ var ObservableObjectAdministration$$1 = /** @class */function () {
                 name: key,
                 newValue: newValue
             } : null;
-            if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
+            if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
             observable$$1.setNewValue(newValue);
             if (notify) notifyListeners$$1(this, change);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
         }
     };
     ObservableObjectAdministration$$1.prototype.has = function (key) {
@@ -21706,9 +21706,9 @@ var ObservableObjectAdministration$$1 = /** @class */function () {
                 oldValue: oldValue,
                 name: key
             } : null;
-            if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
+            if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
             if (notify) notifyListeners$$1(this, change);
-            if (notifySpy && "development" !== "production") spyReportEnd$$1();
+            if (notifySpy && "production" !== "production") spyReportEnd$$1();
         } finally {
             endBatch$$1();
         }
@@ -21741,7 +21741,7 @@ var ObservableObjectAdministration$$1 = /** @class */function () {
      * for callback details
      */
     ObservableObjectAdministration$$1.prototype.observe = function (callback, fireImmediately) {
-        "development" !== "production" && invariant$$1(fireImmediately !== true, "`observe` doesn't support the fire immediately property for observable objects.");
+        "production" !== "production" && invariant$$1(fireImmediately !== true, "`observe` doesn't support the fire immediately property for observable objects.");
         return registerListener$$1(this, callback);
     };
     ObservableObjectAdministration$$1.prototype.intercept = function (handler) {
@@ -21756,9 +21756,9 @@ var ObservableObjectAdministration$$1 = /** @class */function () {
             name: key,
             newValue: newValue
         } : null;
-        if (notifySpy && "development" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
+        if (notifySpy && "production" !== "production") spyReportStart$$1(__assign({}, change, { name: this.name, key: key }));
         if (notify) notifyListeners$$1(this, change);
-        if (notifySpy && "development" !== "production") spyReportEnd$$1();
+        if (notifySpy && "production" !== "production") spyReportEnd$$1();
         if (this.pendingKeys) {
             var entry = this.pendingKeys.get(key);
             if (entry) entry.set(true);
@@ -21798,7 +21798,7 @@ function asObservableObject$$1(target, name, defaultEnhancer) {
         defaultEnhancer = deepEnhancer$$1;
     }
     if (Object.prototype.hasOwnProperty.call(target, $mobx$$1)) return target[$mobx$$1];
-    "development" !== "production" && invariant$$1(Object.isExtensible(target), "Cannot make the designated object observable; it is not extensible");
+    "production" !== "production" && invariant$$1(Object.isExtensible(target), "Cannot make the designated object observable; it is not extensible");
     if (!isPlainObject$$1(target)) name = (target.constructor.name || "ObservableObject") + "@" + getNextId$$1();
     if (!name) name = "ObservableObject@" + getNextId$$1();
     var adm = new ObservableObjectAdministration$$1(target, new Map(), name, defaultEnhancer);
@@ -21854,7 +21854,7 @@ function isObservableObject$$1(thing) {
 function getAtom$$1(thing, property) {
     if (typeof thing === "object" && thing !== null) {
         if (isObservableArray$$1(thing)) {
-            if (property !== undefined) fail$$1("development" !== "production" && "It is not possible to get index atoms from arrays");
+            if (property !== undefined) fail$$1("production" !== "production" && "It is not possible to get index atoms from arrays");
             return thing[$mobx$$1].atom;
         }
         if (isObservableSet$$1(thing)) {
@@ -21864,16 +21864,16 @@ function getAtom$$1(thing, property) {
             var anyThing = thing;
             if (property === undefined) return anyThing._keysAtom;
             var observable$$1 = anyThing._data.get(property) || anyThing._hasMap.get(property);
-            if (!observable$$1) fail$$1("development" !== "production" && "the entry '" + property + "' does not exist in the observable map '" + getDebugName$$1(thing) + "'");
+            if (!observable$$1) fail$$1("production" !== "production" && "the entry '" + property + "' does not exist in the observable map '" + getDebugName$$1(thing) + "'");
             return observable$$1;
         }
         // Initializers run lazily when transpiling to babel, so make sure they are run...
         initializeInstance$$1(thing);
         if (property && !thing[$mobx$$1]) thing[property]; // See #1072
         if (isObservableObject$$1(thing)) {
-            if (!property) return fail$$1("development" !== "production" && "please specify a property");
+            if (!property) return fail$$1("production" !== "production" && "please specify a property");
             var observable$$1 = thing[$mobx$$1].values.get(property);
-            if (!observable$$1) fail$$1("development" !== "production" && "no observable property '" + property + "' found on the observable object '" + getDebugName$$1(thing) + "'");
+            if (!observable$$1) fail$$1("production" !== "production" && "no observable property '" + property + "' found on the observable object '" + getDebugName$$1(thing) + "'");
             return observable$$1;
         }
         if (isAtom$$1(thing) || isComputedValue$$1(thing) || isReaction$$1(thing)) {
@@ -21885,7 +21885,7 @@ function getAtom$$1(thing, property) {
             return thing[$mobx$$1];
         }
     }
-    return fail$$1("development" !== "production" && "Cannot obtain atom from " + thing);
+    return fail$$1("production" !== "production" && "Cannot obtain atom from " + thing);
 }
 function getAdministration$$1(thing, property) {
     if (!thing) fail$$1("Expecting some object");
@@ -21895,7 +21895,7 @@ function getAdministration$$1(thing, property) {
     // Initializers run lazily when transpiling to babel, so make sure they are run...
     initializeInstance$$1(thing);
     if (thing[$mobx$$1]) return thing[$mobx$$1];
-    fail$$1("development" !== "production" && "Cannot obtain administration from " + thing);
+    fail$$1("production" !== "production" && "Cannot obtain administration from " + thing);
 }
 function getDebugName$$1(thing, property) {
     var named;
@@ -22056,7 +22056,7 @@ try {
     // define process.env if needed
     // if this is not a production build in the first place
     // (in which case the expression below would be substituted with 'production')
-    "development";
+    "production";
 } catch (e) {
     var g = typeof window !== "undefined" ? window : global;
     if (typeof process === "undefined") g.process = {};
@@ -22065,7 +22065,7 @@ try {
 
 (function () {
     function testCodeMinification() {}
-    if (testCodeMinification.name !== "testCodeMinification" && "development" !== "production" && undefined !== "true") {
+    if (testCodeMinification.name !== "testCodeMinification" && "production" !== "production" && undefined !== "true") {
         console.warn(
         // Template literal(backtick) is used for fix issue with rollup-plugin-commonjs https://github.com/rollup/rollup-plugin-commonjs/issues/344
         "[mobx] you are running a minified build, but 'process.env.NODE_ENV' was not set to 'production' in your bundler. This results in an unnecessarily large and slow bundle");
@@ -22140,7 +22140,7 @@ exports.$mobx = $mobx$$1;
 exports._isComputingDerivation = isComputingDerivation$$1;
 exports.onReactionError = onReactionError$$1;
 exports._interceptReads = interceptReads$$1;
-},{"process":12}],11:[function(require,module,exports) {
+},{"process":13}],12:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23622,13 +23622,12 @@ exports.useStaticRendering = useStaticRendering;
 exports.Provider = Provider;
 exports.inject = inject;
 exports.disposeOnUnmount = disposeOnUnmount;
-},{"mobx":10,"react":4,"react-dom":5}],3:[function(require,module,exports) {
+},{"mobx":11,"react":5,"react-dom":6}],3:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/home/seddik/dev/react-parcel-example/src/App.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -23640,8 +23639,6 @@ var _mobx = require("mobx");
 
 var _mobxReact = require("mobx-react");
 
-var _reactDom = require("react-dom");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -23651,11 +23648,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 //import "./index.scss";
+//import $ from 'jquery';
 
 var addStyleString = function addStyleString(str) {
   var node = document.createElement('style');
   node.innerHTML = str;
   document.body.appendChild(node);
+};
+
+var reloadSetTimeoutVar = void 0;
+var reloadSetTimeout = function reloadSetTimeout() {
+  reloadSetTimeoutVar = setTimeout(function () {
+    document.location.reload();
+  }, 5000);
+};
+var stopSetTimeout = function stopSetTimeout() {
+  clearTimeout(reloadSetTimeoutVar);
 };
 
 var Store = function Store() {
@@ -23666,6 +23674,7 @@ var Store = function Store() {
   this.fill_auto = false;
   this.start = false;
   this.success = false;
+  this.message = '...';
   this.showTable = false;
   this.first_name = "seddik";
   this.last_name = "benzemame";
@@ -23692,6 +23701,7 @@ var Store = function Store() {
   isLoggedin: _mobx.observable,
   fill_auto: _mobx.observable,
   success: _mobx.observable,
+  message: _mobx.observable,
   start: _mobx.observable,
   showTable: _mobx.observable,
   first_name: _mobx.observable,
@@ -23715,7 +23725,11 @@ var Store = function Store() {
 var appStore = new Store();
 
 var disposer = (0, _mobx.observe)(appStore, function (change) {
-  console.log(change.type, change.name, "from", change.oldValue, "to", change.object[change.name]);
+  //console.log(change.type, change.name, "from", change.oldValue, "to", change.object[change.name]);
+  localStorage.setItem("appStore", JSON.stringify((0, _mobx.toJS)(appStore)));
+  if (change.name = 'start' && change.object[change.name] === false) {
+    stopSetTimeout();
+  }
 });
 
 var Table = function (_Component) {
@@ -23742,33 +23756,17 @@ var Table = function (_Component) {
 
       return _react2.default.createElement(
         "div",
-        { style: { display: 'flex', flexDirection: 'column' }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 81
-          },
-          __self: this
-        },
+        { style: { display: 'flex', flexDirection: 'column' } },
         _react2.default.createElement(
           "h3",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 82
-            },
-            __self: this
-          },
+          null,
           "double click to edit"
         ),
         _react2.default.createElement(
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.first_name = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 83
-            },
-            __self: this
-          },
+            } },
           "first_name: ",
           store.first_name
         ),
@@ -23776,12 +23774,7 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.last_name = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 84
-            },
-            __self: this
-          },
+            } },
           "last_name: ",
           store.last_name
         ),
@@ -23789,12 +23782,7 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.date_of_birth = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 85
-            },
-            __self: this
-          },
+            } },
           "date_of_birth: ",
           store.date_of_birth
         ),
@@ -23802,12 +23790,7 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.email = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 86
-            },
-            __self: this
-          },
+            } },
           "email: ",
           store.email
         ),
@@ -23815,23 +23798,13 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.phone = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 87
-            },
-            __self: this
-          },
+            } },
           "phone: ",
           store.phone
         ),
         _react2.default.createElement(
           "div",
-          { style: { border: '1px solid #000', height: 24 }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 88
-            },
-            __self: this
-          },
+          { style: { border: '1px solid #000', height: 24 } },
           _react2.default.createElement(
             "select",
             {
@@ -23839,151 +23812,76 @@ var Table = function (_Component) {
               onChange: function onChange(e) {
                 return store.passport_type = e.target.value;
               },
-              placeholder: "passportType",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 89
-              },
-              __self: this
+              placeholder: "passportType"
             },
             _react2.default.createElement(
               "option",
-              { value: "02", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 94
-                },
-                __self: this
-              },
+              { value: "02" },
               "Collective passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "13", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 95
-                },
-                __self: this
-              },
+              { value: "13" },
               "D. Viaje Apatridas C. New York"
             ),
             _react2.default.createElement(
               "option",
-              { value: "04", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 96
-                },
-                __self: this
-              },
+              { value: "04" },
               "Diplomatic passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "06", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 97
-                },
-                __self: this
-              },
+              { value: "06" },
               "Government official on duty"
             ),
             _react2.default.createElement(
               "option",
-              { value: "10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 98
-                },
-                __self: this
-              },
+              { value: "10" },
               "National laissez-passer"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 99
-                },
-                __self: this
-              },
+              { value: "14" },
               "Official passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "01", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 100
-                },
-                __self: this
-              },
+              { value: "01" },
               "Ordinary passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "08", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 101
-                },
-                __self: this
-              },
+              { value: "08" },
               "Passport of foreigners"
             ),
             _react2.default.createElement(
               "option",
-              { value: "03", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 102
-                },
-                __self: this
-              },
+              { value: "03" },
               "Protection passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "12", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 103
-                },
-                __self: this
-              },
+              { value: "12" },
               "Refugee Travel Document (Geneva Convention)"
             ),
             _react2.default.createElement(
               "option",
-              { value: "16", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 104
-                },
-                __self: this
-              },
+              { value: "16" },
               "Seaman\u2019s book"
             ),
             _react2.default.createElement(
               "option",
-              { value: "05", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 105
-                },
-                __self: this
-              },
+              { value: "05" },
               "Service passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "07", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 106
-                },
-                __self: this
-              },
+              { value: "07" },
               "Special passport"
             ),
             _react2.default.createElement(
               "option",
-              { value: "11", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 107
-                },
-                __self: this
-              },
+              { value: "11" },
               "UN laissez-passer"
             )
           )
@@ -23992,12 +23890,7 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.passport_no = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 110
-            },
-            __self: this
-          },
+            } },
           "passport_no: ",
           store.passport_no
         ),
@@ -24005,12 +23898,7 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.ppt_issue_date = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 111
-            },
-            __self: this
-          },
+            } },
           "ppt_issue_date: ",
           store.ppt_issue_date
         ),
@@ -24018,12 +23906,7 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.ppt_expiry_date = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 112
-            },
-            __self: this
-          },
+            } },
           "ppt_expiry_date: ",
           store.ppt_expiry_date
         ),
@@ -24031,23 +23914,13 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.ppt_issue_palace = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 113
-            },
-            __self: this
-          },
+            } },
           "ppt_issue_palace ",
           store.ppt_issue_palace
         ),
         _react2.default.createElement(
           "div",
-          { style: { border: '1px solid #000', height: 24 }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 114
-            },
-            __self: this
-          },
+          { style: { border: '1px solid #000', height: 24 } },
           _react2.default.createElement(
             "select",
             {
@@ -24055,471 +23928,236 @@ var Table = function (_Component) {
               value: store.juridiction,
               onChange: function onChange(e) {
                 return store.juridiction = e.target.value;
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 115
-              },
-              __self: this
+              }
             },
             _react2.default.createElement(
               "option",
-              { value: "14#Adrar#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 120
-                },
-                __self: this
-              },
+              { value: "14#Adrar#9" },
               "Adrar"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#A\uFFFDn Temouchent Y Relizane#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 121
-                },
-                __self: this
-              },
+              { value: "14#A\uFFFDn Temouchent Y Relizane#9" },
               "A\xEFn Temouchent Y Relizane"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Ain-Defla#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 122
-                },
-                __self: this
-              },
+              { value: "15#Ain-Defla#10" },
               "Ain-Defla"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Algiers#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 123
-                },
-                __self: this
-              },
+              { value: "15#Algiers#10" },
               "Algiers"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Annaba#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 124
-                },
-                __self: this
-              },
+              { value: "15#Annaba#10" },
               "Annaba"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Batna#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 125
-                },
-                __self: this
-              },
+              { value: "15#Batna#10" },
               "Batna"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#B\uFFFDchar#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 126
-                },
-                __self: this
-              },
+              { value: "14#B\uFFFDchar#9" },
               "B\xE9char"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#B\uFFFDjaia#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 127
-                },
-                __self: this
-              },
+              { value: "15#B\uFFFDjaia#10" },
               "B\xE9jaia"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Biskra#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 128
-                },
-                __self: this
-              },
+              { value: "15#Biskra#10" },
               "Biskra"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Blida#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 129
-                },
-                __self: this
-              },
+              { value: "15#Blida#10" },
               "Blida"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Bordj-Bou-Arr\uFFFDridj#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 130
-                },
-                __self: this
-              },
+              { value: "15#Bordj-Bou-Arr\uFFFDridj#10" },
               "Bordj-Bou-Arr\xE9ridj"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Bouira#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 131
-                },
-                __self: this
-              },
+              { value: "15#Bouira#10" },
               "Bouira"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Boumerd\uFFFDs#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 132
-                },
-                __self: this
-              },
+              { value: "15#Boumerd\uFFFDs#10" },
               "Boumerd\xE9s"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Chlef#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 133
-                },
-                __self: this
-              },
+              { value: "14#Chlef#9" },
               "Chlef"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Constantine#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 134
-                },
-                __self: this
-              },
+              { value: "15#Constantine#10" },
               "Constantine"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Djelfa#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 135
-                },
-                __self: this
-              },
+              { value: "15#Djelfa#10" },
               "Djelfa"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#El Bayadh#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 136
-                },
-                __self: this
-              },
+              { value: "14#El Bayadh#9" },
               "El Bayadh"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#El Oued, El Tarf#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 137
-                },
-                __self: this
-              },
+              { value: "15#El Oued, El Tarf#10" },
               "El Oued, El Tarf"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Gharda\uFFFDa#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 138
-                },
-                __self: this
-              },
+              { value: "15#Gharda\uFFFDa#10" },
               "Gharda\xEFa"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Guelma#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 139
-                },
-                __self: this
-              },
+              { value: "15#Guelma#10" },
               "Guelma"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Illizi#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 140
-                },
-                __self: this
-              },
+              { value: "15#Illizi#10" },
               "Illizi"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Jijel#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 141
-                },
-                __self: this
-              },
+              { value: "15#Jijel#10" },
               "Jijel"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Khenchela#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 142
-                },
-                __self: this
-              },
+              { value: "15#Khenchela#10" },
               "Khenchela"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Laghouart#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 143
-                },
-                __self: this
-              },
+              { value: "15#Laghouart#10" },
               "Laghouart"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#M'sila#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 144
-                },
-                __self: this
-              },
+              { value: "15#M'sila#10" },
               "M'sila"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Mascara#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 145
-                },
-                __self: this
-              },
+              { value: "14#Mascara#9" },
               "Mascara"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#M\uFFFDd\uFFFDa#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 146
-                },
-                __self: this
-              },
+              { value: "15#M\uFFFDd\uFFFDa#10" },
               "M\xE9d\xE9a"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Mila#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 147
-                },
-                __self: this
-              },
+              { value: "15#Mila#10" },
               "Mila"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Mostaganem#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 148
-                },
-                __self: this
-              },
+              { value: "14#Mostaganem#9" },
               "Mostaganem"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Na\uFFFDma#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 149
-                },
-                __self: this
-              },
+              { value: "14#Na\uFFFDma#9" },
               "Na\xE2ma"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Oran#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 150
-                },
-                __self: this
-              },
+              { value: "14#Oran#9" },
               "Oran"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Ouargla#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 151
-                },
-                __self: this
-              },
+              { value: "15#Ouargla#10" },
               "Ouargla"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Oum El Bouaghi#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 152
-                },
-                __self: this
-              },
+              { value: "15#Oum El Bouaghi#10" },
               "Oum El Bouaghi"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Sa\uFFFDda#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 153
-                },
-                __self: this
-              },
+              { value: "14#Sa\uFFFDda#9" },
               "Sa\xEFda"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#S\uFFFDtif#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 154
-                },
-                __self: this
-              },
+              { value: "15#S\uFFFDtif#10" },
               "S\xE9tif"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Sidi Bel-Abbes#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 155
-                },
-                __self: this
-              },
+              { value: "14#Sidi Bel-Abbes#9" },
               "Sidi Bel-Abbes"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Skikda#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 156
-                },
-                __self: this
-              },
+              { value: "15#Skikda#10" },
               "Skikda"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Souk Ahras#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 157
-                },
-                __self: this
-              },
+              { value: "15#Souk Ahras#10" },
               "Souk Ahras"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Tamanrasset#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 158
-                },
-                __self: this
-              },
+              { value: "15#Tamanrasset#10" },
               "Tamanrasset"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Tebessa#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 159
-                },
-                __self: this
-              },
+              { value: "15#Tebessa#10" },
               "Tebessa"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Tiaret#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 160
-                },
-                __self: this
-              },
+              { value: "14#Tiaret#9" },
               "Tiaret"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Tindouf#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 161
-                },
-                __self: this
-              },
+              { value: "15#Tindouf#10" },
               "Tindouf"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Tipaza#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 162
-                },
-                __self: this
-              },
+              { value: "15#Tipaza#10" },
               "Tipaza"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Tissemsilt#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 163
-                },
-                __self: this
-              },
+              { value: "14#Tissemsilt#9" },
               "Tissemsilt"
             ),
             _react2.default.createElement(
               "option",
-              { value: "15#Tizi-Ouzou#10", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 164
-                },
-                __self: this
-              },
+              { value: "15#Tizi-Ouzou#10" },
               "Tizi-Ouzou"
             ),
             _react2.default.createElement(
               "option",
-              { value: "14#Tlemcen#9", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 165
-                },
-                __self: this
-              },
+              { value: "14#Tlemcen#9" },
               "Tlemcen"
             )
           )
@@ -24528,23 +24166,13 @@ var Table = function (_Component) {
           "div",
           { style: { border: '1px solid #000', height: 24 }, onDoubleClick: function onDoubleClick() {
               return store.visa_no = prompt("Enter new value");
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 168
-            },
-            __self: this
-          },
+            } },
           "visa_no: ",
           store.visa_no
         ),
         _react2.default.createElement(
           "div",
-          { style: { border: '1px solid #000', height: 24 }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 169
-            },
-            __self: this
-          },
+          { style: { border: '1px solid #000', height: 24 } },
           _react2.default.createElement(
             "select",
             {
@@ -24552,91 +24180,46 @@ var Table = function (_Component) {
               onChange: function onChange(e) {
                 return store.visa_type = e.target.value;
               },
-              placeholder: "VisaTypeId",
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 170
-              },
-              __self: this
+              placeholder: "VisaTypeId"
             },
             _react2.default.createElement(
               "option",
-              { value: "207", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 175
-                },
-                __self: this
-              },
+              { value: "207" },
               "Tourism"
             ),
             _react2.default.createElement(
               "option",
-              { value: "208", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 176
-                },
-                __self: this
-              },
+              { value: "208" },
               "Business"
             ),
             _react2.default.createElement(
               "option",
-              { value: "209", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 177
-                },
-                __self: this
-              },
+              { value: "209" },
               "Students /Study"
             ),
             _react2.default.createElement(
               "option",
-              { value: "210", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 178
-                },
-                __self: this
-              },
+              { value: "210" },
               "Transit"
             ),
             _react2.default.createElement(
               "option",
-              { value: "211", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 179
-                },
-                __self: this
-              },
+              { value: "211" },
               "Sport/Culture"
             ),
             _react2.default.createElement(
               "option",
-              { value: "212", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 180
-                },
-                __self: this
-              },
+              { value: "212" },
               "Medical"
             ),
             _react2.default.createElement(
               "option",
-              { value: "213", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 181
-                },
-                __self: this
-              },
+              { value: "213" },
               "Family"
             ),
             _react2.default.createElement(
               "option",
-              { value: "214", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 182
-                },
-                __self: this
-              },
+              { value: "214" },
               "Mission"
             )
           )
@@ -24667,16 +24250,106 @@ var App = function (_Component2) {
     return _ret = (_temp = (_this2 = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this2), _this2.init = function () {
       $(".popupBG-app").hide();
       $("#IDBodyPanelapp").hide();
+      var tokenvalue = $('#csrftokenvalue').val();
+      if (tokenvalue === undefined) {
+        appStore.message = 'maybe thé site closed now !';
+        reloadSetTimeout();
+      } else {
+        var email = appStore.email;
+        var jurisId = appStore.juridiction;
+        var phoneCode = appStore.phone_code;
+        var mobileNo = appStore.phone;
+        var visa = appStore.visa_no;
+        document.getElementById('email').value = email;
+        document.getElementById('juridiction').value = jurisId;
+        document.getElementById("phone_code").value = phoneCode;
+        document.getElementById("phone").value = mobileNo;
+        document.getElementById("visa_no").value = visa;
+        if (mobileNo != '' && phoneCode != '' && jurisId[2] != '') {
+          $.ajax({
+            type: "POST",
+            data: "gofor=send_mail&email=" + email + "&phone_code=" + phoneCode + "&phone_no=" + mobileNo + "&center_id=" + jurisId[2] + "&visa=" + visa + "&token=" + tokenvalue,
+            url: "ajax.php",
+            success: function success(response) {
+              if (response.trim() == "full") {
+                appStore.message = 'Appointment dates are not available.';
+                reloadSetTimeout();
+                $("#reponse_div").html("Appointment dates are not available.");
+              } else if (response.trim() == "fail") {
+                appStore.message = 'You have already booked appointment with this phone. Please try with another number.';
+                reloadSetTimeout();
+                $("#reponse_div").html("You have already booked appointment with this phone. Please try with another number.");
+              } else if (response.trim() == "same") {
+                appStore.message = 'Please used last sent verification code.';
+                appStore.success = true;
+                $("#reponse_div").html("Please used last sent verification code.");
+              } else if (response.trim() == "error") {
+                appStore.message = 'Please check your phone number and country code for phone.';
+                reloadSetTimeout();
+                $("#reponse_div").html("Please check your phone number and country code for phone.");
+              } else if (response.trim() == "CSRF Token validation Failed") {
+                appStore.message = 'Token validation Failed! Please refresh your page.';
+                reloadSetTimeout();
+                $("#reponse_div").html("Token validation Failed! Please refresh your page.");
+              } else if (response.trim() == "pass") {
+                appStore.message = 'Verification code sent to your phone.';
+                appStore.success = true;
+                $("#reponse_div").html("Verification code sent to your phone.");
+                $(".btn-check-otp").attr('disabled', 'disabled');
+              } else {
+                reloadSetTimeout();
+              }
+            }
+          });
+        } else {
+          appStore.message = 'error while trying to fetch !!';
+          reloadSetTimeout();
+        }
+      }
     }, _this2._onStart = function () {
       if (appStore.start) {
         // do to stope
         appStore.start = false;
       } else {
-        // do start
         appStore.start = true;
+        _this2.init();
       }
     }, _this2._fill = function () {
-      // do fill data
+      var dd = document.getElementsByClassName('col-sm-8 container');
+      if (dd !== null && dd.length > 0) {
+        var d = dd[0];
+        var inner = d.innerHTML;
+        var i = inner.search("available_dates");
+        if (i !== -1) {
+          var s = '';
+          for (var x = i; i < inner.length; x++) {
+            if (inner[x] === ']') {
+              break;
+            }
+            s += inner[x];
+          }
+          s += ']';
+          s = s.split('=')[1];
+          var date = eval(s)[0];
+          document.getElementById('app_date').value = date.split('-').reverse().join('-');
+          document.getElementById('app_time').value = '10:00 - 10:10';
+          document.getElementById('VisaTypeId').value = appStore.visa_type;
+          document.getElementById('first_name').value = appStore.first_name;
+          document.getElementById('last_name').value = appStore.last_name;
+          document.getElementById('dateOfBirth').value = appStore.date_of_birth;
+          document.getElementById('phone_code').value = appStore.phone_code;
+          document.getElementById('phone').value = appStore.phone;
+          document.getElementById('nationalityId').value = appStore.nationality;
+          document.getElementById('passportType').value = appStore.passport_type;
+          document.getElementById('passport_no').value = appStore.passport_no;
+          document.getElementById('pptIssueDate').value = appStore.ppt_issue_date;
+          document.getElementById('pptExpiryDate').value = appStore.ppt_expiry_date;
+          document.getElementById('pptIssuePalace').value = appStore.ppt_issue_palace;
+          appStore.message = 'fill data success';
+        } else {
+          appStore.message = 'fill data error';
+        }
+      }
     }, _this2._codeChange = function (e) {
       appStore.veryfication_code = e.target.value;
       appStore.start = false;
@@ -24687,7 +24360,33 @@ var App = function (_Component2) {
     key: "componentDidMount",
     value: function componentDidMount() {
       addStyleString("\n      body{\n        position: relative;\n      }\n    ");
-      this.init();
+      var storeLocalStorageText = localStorage.getItem("appStore");
+      if (storeLocalStorageText) {
+        var storeLocalStorage = JSON.parse(storeLocalStorageText);
+        appStore.isLoading = storeLocalStorage.isLoading;
+        appStore.isLoggedin = storeLocalStorage.isLoggedin;
+        appStore.fill_auto = storeLocalStorage.fill_auto;
+        appStore.start = storeLocalStorage.start;
+        appStore.success = storeLocalStorage.success;
+        appStore.first_name = storeLocalStorage.first_name;
+        appStore.last_name = storeLocalStorage.last_name;
+        appStore.date_of_birth = storeLocalStorage.date_of_birth;
+        appStore.email = storeLocalStorage.email;
+        appStore.phone_code = storeLocalStorage.phone_code;
+        appStore.phone = storeLocalStorage.phone;
+        appStore.passport_type = storeLocalStorage.passport_type;
+        appStore.passport_no = storeLocalStorage.passport_no;
+        appStore.ppt_issue_date = storeLocalStorage.ppt_issue_date;
+        appStore.ppt_expiry_date = storeLocalStorage.ppt_expiry_date;
+        appStore.ppt_issue_palace = storeLocalStorage.ppt_issue_palace;
+        appStore.juridiction = storeLocalStorage.juridiction;
+        appStore.visa_no = storeLocalStorage.visa_no;
+        appStore.visa_type = storeLocalStorage.visa_type;
+        appStore.veryfication_code = storeLocalStorage.veryfication_code;
+      }
+      if (appStore.start) {
+        this.init();
+      }
     }
   }, {
     key: "render",
@@ -24705,73 +24404,62 @@ var App = function (_Component2) {
             padding: 10,
             opacity: 0.95,
             display: 'flex',
-            flexDirection: 'column'
-          }, id: "reactAppDiv", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 224
+            flexDirection: 'column',
+            justifyContent: 'center'
+          }, id: "reactAppDiv" },
+        _react2.default.createElement("input", {
+          onKeyPress: function onKeyPress(e) {
+            if (e.key === 'Enter') {
+              if (document.getElementById('otpvr') !== null) {
+                document.getElementById('email').value = appStore.email;
+                document.getElementById('juridiction').value = appStore.juridiction;
+                document.getElementById("phone_code").value = appStore.phone_code;
+                document.getElementById("phone").value = appStore.phone;
+                document.getElementById("visa_no").value = appStore.visa_no;
+                document.getElementById('otpvr').value = appStore.veryfication_code;
+                $('#recaptcha-token').click();
+              } else {
+                appStore.message = 'veryfication code input field not found !';
+              }
+            }
           },
-          __self: this
-        },
-        _react2.default.createElement("input", { type: "text", placeholder: "veryfication_code", value: appStore.veryfication_code, onChange: this._codeChange, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 237
-          },
-          __self: this
-        }),
+          type: "text", placeholder: "veryfication code and press Enter ", value: appStore.veryfication_code, onChange: this._codeChange }),
         _react2.default.createElement(
           "div",
-          { style: { display: 'flex', justifyContent: 'center', alignItems: 'center' }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 238
-            },
-            __self: this
-          },
+          { style: { display: 'flex', justifyContent: 'center', alignItems: 'center' } },
           _react2.default.createElement(
             "button",
-            { style: { flex: 1 }, onClick: this._fill, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 239
-              },
-              __self: this
-            },
+            { style: { flex: 1 }, onClick: this._fill },
             "fill data"
           ),
           _react2.default.createElement(
             "button",
-            { style: { flex: 1, backgroundColor: appStore.start ? '#d8e647' : '#eaaeae' }, onClick: this._onStart, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 240
-              },
-              __self: this
-            },
+            { style: { flex: 1, backgroundColor: appStore.start ? '#d8e647' : '#eaaeae' }, onClick: this._onStart },
             appStore.start ? 'click to stop' : 'click to start'
+          ),
+          _react2.default.createElement(
+            "button",
+            { style: { flex: 1 }, onClick: function onClick() {
+                localStorage.clear();
+                document.location.reload();
+              } },
+            "default"
           )
         ),
-        _react2.default.createElement("hr", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 242
-          },
-          __self: this
-        }),
+        _react2.default.createElement(
+          "span",
+          { style: { alignSelf: 'center' } },
+          appStore.message
+        ),
+        _react2.default.createElement("hr", null),
         _react2.default.createElement(
           "span",
           { onClick: function onClick() {
               return appStore.showTable = !appStore.showTable;
-            }, style: { alignSelf: 'center', cursor: 'pointer' }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 243
-            },
-            __self: this
-          },
+            }, style: { alignSelf: 'center', cursor: 'pointer' } },
           appStore.showTable ? '🡅' : '🡇'
         ),
-        appStore.showTable === true && _react2.default.createElement(Table, { store: appStore, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 246
-          },
-          __self: this
-        })
+        appStore.showTable === true && _react2.default.createElement(Table, { store: appStore })
       );
     }
   }]);
@@ -24781,10 +24469,8 @@ var App = function (_Component2) {
 
 App = (0, _mobxReact.observer)(App);
 exports.default = App;
-},{"react":4,"mobx":10,"mobx-react":11,"react-dom":5}],2:[function(require,module,exports) {
+},{"react":5,"mobx":11,"mobx-react":12}],2:[function(require,module,exports) {
 'use strict';
-
-var _jsxFileName = '/home/seddik/dev/react-parcel-example/index.js';
 
 var _react = require('react');
 
@@ -24800,133 +24486,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var reactDIV = document.createElement("div");
 document.body.appendChild(reactDIV);
-(0, _reactDom.render)(_react2.default.createElement(_App2.default, {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 6
-  },
-  __self: undefined
-}), reactDIV);
-},{"react":4,"react-dom":5,"./src/App":3}],32:[function(require,module,exports) {
-
-var global = (1, eval)('this');
-var OldModule = module.bundle.Module;
-function Module() {
-  OldModule.call(this);
-  this.hot = {
-    accept: function (fn) {
-      this._acceptCallback = fn || function () {};
-    },
-    dispose: function (fn) {
-      this._disposeCallback = fn;
-    }
-  };
-}
-
-module.bundle.Module = Module;
-
-if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var hostname = '' || location.hostname;
-  var ws = new WebSocket('ws://' + hostname + ':' + '32983' + '/');
-  ws.onmessage = function (event) {
-    var data = JSON.parse(event.data);
-
-    if (data.type === 'update') {
-      data.assets.forEach(function (asset) {
-        hmrApply(global.require, asset);
-      });
-
-      data.assets.forEach(function (asset) {
-        if (!asset.isNew) {
-          hmrAccept(global.require, asset.id);
-        }
-      });
-    }
-
-    if (data.type === 'reload') {
-      ws.close();
-      ws.onclose = function () {
-        location.reload();
-      };
-    }
-
-    if (data.type === 'error-resolved') {
-      console.log('[parcel] ✨ Error resolved');
-    }
-
-    if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + 'data.error.stack');
-    }
-  };
-}
-
-function getParents(bundle, id) {
-  var modules = bundle.modules;
-  if (!modules) {
-    return [];
-  }
-
-  var parents = [];
-  var k, d, dep;
-
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d];
-      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(+k);
-      }
-    }
-  }
-
-  if (bundle.parent) {
-    parents = parents.concat(getParents(bundle.parent, id));
-  }
-
-  return parents;
-}
-
-function hmrApply(bundle, asset) {
-  var modules = bundle.modules;
-  if (!modules) {
-    return;
-  }
-
-  if (modules[asset.id] || !bundle.parent) {
-    var fn = new Function('require', 'module', 'exports', asset.generated.js);
-    asset.isNew = !modules[asset.id];
-    modules[asset.id] = [fn, asset.deps];
-  } else if (bundle.parent) {
-    hmrApply(bundle.parent, asset);
-  }
-}
-
-function hmrAccept(bundle, id) {
-  var modules = bundle.modules;
-  if (!modules) {
-    return;
-  }
-
-  if (!modules[id] && bundle.parent) {
-    return hmrAccept(bundle.parent, id);
-  }
-
-  var cached = bundle.cache[id];
-  if (cached && cached.hot._disposeCallback) {
-    cached.hot._disposeCallback();
-  }
-
-  delete bundle.cache[id];
-  bundle(id);
-
-  cached = bundle.cache[id];
-  if (cached && cached.hot && cached.hot._acceptCallback) {
-    cached.hot._acceptCallback();
-    return true;
-  }
-
-  return getParents(global.require, id).some(function (id) {
-    return hmrAccept(global.require, id);
-  });
-}
-},{}]},{},[32,2])
-//# sourceMappingURL=/dist/a2399e11c695b3b27e5a9d2e712c2950.map
+(0, _reactDom.render)(_react2.default.createElement(_App2.default, null), reactDIV);
+},{"react":5,"react-dom":6,"./src/App":3}]},{},[2])
