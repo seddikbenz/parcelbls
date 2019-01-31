@@ -273,6 +273,7 @@ class App extends Component {
               appStore.message = 'Please used last sent verification code.'
               appStore.success = true
               $("#reponse_div").html("Please used last sent verification code.");
+              window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw","_blank");
             } else if (response.trim() == "error") {
               appStore.message = 'Please check your phone number and country code for phone.'
               reloadSetTimeout()
@@ -286,6 +287,7 @@ class App extends Component {
               appStore.success = true
               $("#reponse_div").html("Verification code sent to your phone.");
               $(".btn-check-otp").attr('disabled', 'disabled');
+              window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw","_blank");
             } else {
               reloadSetTimeout()
             }
