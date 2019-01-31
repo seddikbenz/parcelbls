@@ -101,13 +101,13 @@ class Table extends Component {
   render() {
     const { store } = this.props;
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }} >
-        <label style={{ color: 'green', alignSelf: 'center', padding:3, textDecoration: 'underline' }}>Double click inside field to edit</label>
-        <div style={styles.input} onDoubleClick={() => store.first_name = prompt("Enter new value")} >first_name: {store.first_name}</div>
-        <div style={styles.input} onDoubleClick={() => store.last_name = prompt("Enter new value")} >last_name: {store.last_name}</div>
-        <div style={styles.input} onDoubleClick={() => store.date_of_birth = prompt("Enter new value")}>date_of_birth: {store.date_of_birth}</div>
-        <div style={styles.input} onDoubleClick={() => store.email = prompt("Enter new value")}>email: {store.email}</div>
-        <div style={styles.input} onDoubleClick={() => store.phone = prompt("Enter new value")}>phone: {store.phone}</div>
+      <div style={{ display: 'flex', flexDirection: 'column', border: '1px dashed #000',marginTop: 5, padding: 5, backgroundColor: '#fff', borderRadius: 5 }} >
+        <label style={{ color: 'green', padding:3 }}>Double click inside field to edit</label>
+        <div style={styles.input} onDoubleClick={() => store.first_name = prompt("Enter new value")} >First name: {store.first_name}</div>
+        <div style={styles.input} onDoubleClick={() => store.last_name = prompt("Enter new value")} >Last name: {store.last_name}</div>
+        <div style={styles.input} onDoubleClick={() => store.date_of_birth = prompt("Enter new value")}>Date of birth: {store.date_of_birth}</div>
+        <div style={styles.input} onDoubleClick={() => store.email = prompt("Enter new value")}>Email: {store.email}</div>
+        <div style={styles.input} onDoubleClick={() => store.phone = prompt("Enter new value")}>Phone: {store.phone}</div>
         <div style={styles.input}>
           Passport type:
           <select
@@ -132,10 +132,10 @@ class Table extends Component {
             <option value="11">UN laissez-passer</option>
           </select>
         </div>
-        <div style={styles.input} onDoubleClick={() => store.passport_no = prompt("Enter new value")}>passport_no: {store.passport_no}</div>
-        <div style={styles.input} onDoubleClick={() => store.ppt_issue_date = prompt("Enter new value")}>ppt_issue_date: {store.ppt_issue_date}</div>
-        <div style={styles.input} onDoubleClick={() => store.ppt_expiry_date = prompt("Enter new value")}>ppt_expiry_date: {store.ppt_expiry_date}</div>
-        <div style={styles.input} onDoubleClick={() => store.ppt_issue_palace = prompt("Enter new value")}>ppt_issue_palace {store.ppt_issue_palace}</div>
+        <div style={styles.input} onDoubleClick={() => store.passport_no = prompt("Enter new value")}>Passport No: {store.passport_no}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_issue_date = prompt("Enter new value")}>Passport issue date: {store.ppt_issue_date}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_expiry_date = prompt("Enter new value")}>Passport expiry date: {store.ppt_expiry_date}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_issue_palace = prompt("Enter new value")}>Passport issue palace {store.ppt_issue_palace}</div>
         <div style={styles.input} >
           Juridiction:
           <select
@@ -192,7 +192,7 @@ class Table extends Component {
             <option value="14#Tlemcen#9">Tlemcen</option>
           </select>
         </div>
-        <div style={styles.input} onDoubleClick={() => store.visa_no = prompt("Enter new value")}>visa_no: {store.visa_no}</div>
+        <div style={styles.input} onDoubleClick={() => store.visa_no = prompt("Enter new value")}>Visa No: {store.visa_no}</div>
         <div style={styles.input}>
           Visa type:
           <select
@@ -374,7 +374,8 @@ class App extends Component {
         right: 10,
         top: 10,
         width: 350,
-        backgroundColor: appStore.success ? 'lightgreen' : '#ffeb3b',
+        backgroundColor: '#f1f1f1',
+        border: appStore.success ? '3px solid lightgreen' : '3px solid orange',
         borderRadius: 10,
         padding: 10,
         display: 'flex',
@@ -413,12 +414,13 @@ class App extends Component {
             document.location.reload()
           }}>Default values</button>
         </div>
+        <hr style={{width: '100%'}} />
         <span style={{ alignSelf: 'center' }}>{appStore.message}</span>
         <hr style={{width: '100%'}} />
         <span onClick={() => {
           appStore.start = false;
           appStore.showTable = !appStore.showTable
-        }} style={{ alignSelf: 'center', cursor: 'pointer' }}>{appStore.showTable ? 'Hide your informations' : 'Show your informations'}</span>
+        }} style={{ alignSelf: 'flex-end', cursor: 'pointer', textDecoration: 'underline' }}>{appStore.showTable ? 'Hide your informations' : 'Show your informations'}</span>
         {
           appStore.showTable === true &&
           <Table store={appStore} />
