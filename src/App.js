@@ -394,7 +394,10 @@ class App extends Component {
         </div>
         <span style={{ alignSelf: 'center' }}>{appStore.message}</span>
         <hr />
-        <span onClick={() => appStore.showTable = !appStore.showTable} style={{ alignSelf: 'center', cursor: 'pointer' }}>{appStore.showTable ? 'hide' : 'show'}</span>
+        <span onClick={() => {
+          appStore.start = false;
+          appStore.showTable = !appStore.showTable
+        }} style={{ alignSelf: 'center', cursor: 'pointer' }}>{appStore.showTable ? 'hide' : 'show'}</span>
         {
           appStore.showTable === true &&
           <Table store={appStore} />
