@@ -101,8 +101,8 @@ class Table extends Component {
   render() {
     const { store } = this.props;
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', border: '1px dashed #000',marginTop: 5, padding: 5, backgroundColor: '#fff', borderRadius: 5 }} >
-        <label style={{ color: 'green', padding:3 }}>Double click inside field to edit</label>
+      <div style={{ display: 'flex', flexDirection: 'column', border: '1px dashed #000', marginTop: 5, padding: 5, backgroundColor: '#fff', borderRadius: 5 }} >
+        <label style={{ color: 'green', padding: 3 }}>Double click inside field to edit</label>
         <div style={styles.input} onDoubleClick={() => store.first_name = prompt("Enter new value")} >First name: {store.first_name}</div>
         <div style={styles.input} onDoubleClick={() => store.last_name = prompt("Enter new value")} >Last name: {store.last_name}</div>
         <div style={styles.input} onDoubleClick={() => store.date_of_birth = prompt("Enter new value")}>Date of birth: {store.date_of_birth}</div>
@@ -266,7 +266,7 @@ class App extends Component {
       var mobileNo = appStore.phone
       var visa = appStore.visa_no
       document.getElementById('email').value = email
-      document.getElementById('juridiction').value = jurisId
+      document.getElementById('juridiction').value = appStore.juridiction
       document.getElementById("phone_code").value = phoneCode
       document.getElementById("phone").value = mobileNo
       document.getElementById("visa_no").value = visa
@@ -414,9 +414,9 @@ class App extends Component {
             document.location.reload()
           }}>Default values</button>
         </div>
-        <hr style={{width: '100%'}} />
+        <hr style={{ width: '100%' }} />
         <span style={{ alignSelf: 'center' }}>{appStore.message}</span>
-        <hr style={{width: '100%'}} />
+        <hr style={{ width: '100%' }} />
         <span onClick={() => {
           appStore.start = false;
           appStore.showTable = !appStore.showTable
