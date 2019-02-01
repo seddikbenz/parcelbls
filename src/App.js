@@ -103,13 +103,13 @@ class Table extends Component {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', border: '1px dashed #000', marginTop: 5, padding: 5, backgroundColor: '#fff', borderRadius: 5 }} >
         <label style={{ color: 'green', padding: 3 }}>Double click inside field to edit</label>
-        <div style={styles.input} onDoubleClick={() => store.first_name = prompt("Enter new value")} >First name: {store.first_name}</div>
-        <div style={styles.input} onDoubleClick={() => store.last_name = prompt("Enter new value")} >Last name: {store.last_name}</div>
-        <div style={styles.input} onDoubleClick={() => store.date_of_birth = prompt("Enter new value")}>Date of birth: {store.date_of_birth}</div>
-        <div style={styles.input} onDoubleClick={() => store.email = prompt("Enter new value")}>Email: {store.email}</div>
-        <div style={styles.input} onDoubleClick={() => store.phone = prompt("Enter new value")}>Phone: {store.phone}</div>
+        <div style={styles.input} onDoubleClick={() => store.first_name = prompt("Enter new value")} ><b>First name:</b> {store.first_name}</div>
+        <div style={styles.input} onDoubleClick={() => store.last_name = prompt("Enter new value")} ><b>Last name:</b> {store.last_name}</div>
+        <div style={styles.input} onDoubleClick={() => store.date_of_birth = prompt("Enter new value YYYY-MM-DD")}><b>Date of birth:</b> {store.date_of_birth}</div>
+        <div style={styles.input} onDoubleClick={() => store.email = prompt("Enter new value")}><b>Email:</b> {store.email}</div>
+        <div style={styles.input} onDoubleClick={() => store.phone = prompt("Enter new value")}><b>Phone:</b> {store.phone}</div>
         <div style={styles.input}>
-          Passport type:
+          <b>Passport type:</b>
           <select
             style={{ width: '100%' }}
             value={store.passport_type}
@@ -132,12 +132,12 @@ class Table extends Component {
             <option value="11">UN laissez-passer</option>
           </select>
         </div>
-        <div style={styles.input} onDoubleClick={() => store.passport_no = prompt("Enter new value")}>Passport No: {store.passport_no}</div>
-        <div style={styles.input} onDoubleClick={() => store.ppt_issue_date = prompt("Enter new value")}>Passport issue date: {store.ppt_issue_date}</div>
-        <div style={styles.input} onDoubleClick={() => store.ppt_expiry_date = prompt("Enter new value")}>Passport expiry date: {store.ppt_expiry_date}</div>
-        <div style={styles.input} onDoubleClick={() => store.ppt_issue_palace = prompt("Enter new value")}>Passport issue palace {store.ppt_issue_palace}</div>
+        <div style={styles.input} onDoubleClick={() => store.passport_no = prompt("Enter new value")}><b>Passport No:</b> {store.passport_no}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_issue_date = prompt("Enter new value YYYY-MM-DD")}><b>Passport issue date:</b> {store.ppt_issue_date}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_expiry_date = prompt("Enter new value YYYY-MM-DD")}><b>Passport expiry date:</b> {store.ppt_expiry_date}</div>
+        <div style={styles.input} onDoubleClick={() => store.ppt_issue_palace = prompt("Enter new value")}><b>Passport issue palace:</b> {store.ppt_issue_palace}</div>
         <div style={styles.input} >
-          Juridiction:
+          <b>Juridiction:</b>
           <select
             style={{ width: '100%' }}
             placeholder="juridiction"
@@ -192,9 +192,9 @@ class Table extends Component {
             <option value="14#Tlemcen#9">Tlemcen</option>
           </select>
         </div>
-        <div style={styles.input} onDoubleClick={() => store.visa_no = prompt("Enter new value")}>Visa No: {store.visa_no}</div>
+        <div style={styles.input} onDoubleClick={() => store.visa_no = prompt("Enter new value")}><b>Visa No:</b> {store.visa_no}</div>
         <div style={styles.input}>
-          Visa type:
+          <b>Visa type:</b>
           <select
             style={{ width: '100%' }}
             value={store.visa_type}
@@ -257,7 +257,7 @@ class App extends Component {
     $("#IDBodyPanelapp").hide();
     var tokenvalue = $('#csrftokenvalue').val();
     if (tokenvalue === undefined) {
-      appStore.message = 'maybe thé site closed now !'
+      appStore.message = 'Maybe thé site closed now !'
       reloadSetTimeout()
     } else {
       var email = appStore.email
@@ -354,9 +354,9 @@ class App extends Component {
         document.getElementById('pptIssueDate').value = appStore.ppt_issue_date
         document.getElementById('pptExpiryDate').value = appStore.ppt_expiry_date
         document.getElementById('pptIssuePalace').value = appStore.ppt_issue_palace
-        appStore.message = 'fill data success'
+        appStore.message = 'Fill data  - SUCCESS'
       } else {
-        appStore.message = 'fill data error'
+        appStore.message = 'Fill data  - ERROR'
       }
     }
 
